@@ -16,9 +16,6 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
-    /*@Autowired
-    private VideoRepo videoRepo;*/
-
     @PostMapping
     public ResponseEntity addVideo(@RequestBody VideoEntity video,
                                    @RequestParam int age_rating){
@@ -64,15 +61,12 @@ public class VideoController {
         }
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity deleteOneRating(@PathVariable String name){
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteOneRating(@PathVariable Long id){
         try{
             //ошибки
-            // такого рейтинга не существует
-            // с ним связаны многие записи (не стоит удалять)
-            //ageRatingRepo.deleteById(id);
-            //VideoEntity video = videoRepo.findByName(name); //Костыль
-            //videoRepo.delete(video);
+            // такого видео не существует
+            videoService.deleteVideo(id);
             return ResponseEntity.ok("Видео удалено");
         }
         catch (Exception e){

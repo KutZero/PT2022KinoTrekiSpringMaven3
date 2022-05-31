@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface MusicGenreRepo extends CrudRepository<MusicGenreEntity, Long> {
 
+    MusicGenreEntity findByName(String name);
 }
