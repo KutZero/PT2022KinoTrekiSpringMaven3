@@ -1,5 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities;
 
+import com.example.PT2022KinoTrekiSpringMaven.entity.UserEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,4 +14,9 @@ public class UserRoleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "user_role",
+            cascade = CascadeType.ALL)
+    private List<UserEntity> users;
 }

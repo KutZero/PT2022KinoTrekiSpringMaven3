@@ -16,4 +16,12 @@ public class ReviewComplaintEntity {
     private Long review_id;
     private String content;
     private Date add_date;
+
+    /*@ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;*/
+
+    /*@ManyToOne
+    @JoinColumn(name = "review_id")
+    private ReviewEntity review;*/
 }
