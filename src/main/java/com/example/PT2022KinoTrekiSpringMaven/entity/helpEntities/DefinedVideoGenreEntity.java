@@ -1,6 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
 import lombok.Data;
 

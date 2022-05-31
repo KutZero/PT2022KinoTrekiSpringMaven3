@@ -1,6 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.MusicEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.MusicEntity;
 import lombok.Data;
 
 import javax.persistence.*;

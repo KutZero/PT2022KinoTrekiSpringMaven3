@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.entity;
+package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
 import lombok.Data;
 
@@ -7,13 +7,13 @@ import java.sql.Date;
 
 @Data
 @Entity
-@Table(name = "comment_complaint")
-public class CommentComplaintEntity {
+@Table(name = "review_complaint")
+public class ReviewComplaintEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //private Long user_id;
-    //private Long comment_id;
+    //private Long review_id;
     private String content;
     private Date add_date;
 
@@ -22,6 +22,6 @@ public class CommentComplaintEntity {
     private UserEntity user;
 
     @ManyToOne
-    @JoinColumn(name = "comment_id")
-    private CommentEntity comment;
+    @JoinColumn(name = "review_id")
+    private ReviewEntity review;
 }

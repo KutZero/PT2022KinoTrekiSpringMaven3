@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.entity;
+package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.UserRoleEntity;
 import lombok.Data;

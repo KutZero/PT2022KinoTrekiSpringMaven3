@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.model;
 
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 
 public class SimpleVideo {
     private String name;

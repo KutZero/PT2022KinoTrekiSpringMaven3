@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.entity;
+package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
 import lombok.Data;
@@ -20,5 +20,5 @@ public class CreatorEntity {
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "creator",
         cascade = CascadeType.ALL)
-    private List<DefinedCreatorEntity> creators;
+    private List<DefinedCreatorEntity> def_creators;
 }

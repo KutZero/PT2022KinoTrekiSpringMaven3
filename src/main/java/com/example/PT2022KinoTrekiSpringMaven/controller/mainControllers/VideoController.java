@@ -1,7 +1,7 @@
-package com.example.PT2022KinoTrekiSpringMaven.controller;
+package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.service.VideoService;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,20 +27,22 @@ public class VideoController {
         }
     }
 
-    /*@PutMapping
+    @PutMapping
     public ResponseEntity editVideo(@RequestBody VideoEntity video,
-                                   @RequestParam Long role_id){
+                                    @RequestParam int age_rating,
+                                    @RequestParam Long video_id){
         try{
             //ошибки
-            // рейтинг уже существует
+            // рейтинг не существует
             // id уже занят
-            videoRepo.save(video);
-            return ResponseEntity.ok("Видео добавлено");
+            // видео не существует
+            videoService.editVideo(video, age_rating, video_id);
+            return ResponseEntity.ok("Видео изменено");
         }
         catch (Exception e){
-            return ResponseEntity.badRequest().body("Ошибка добавления видео");
+            return ResponseEntity.badRequest().body("Ошибка изменения видео");
         }
-    }*/
+    }
 
     @GetMapping
     public ResponseEntity getOneSimpleVideo(@RequestParam Long id){

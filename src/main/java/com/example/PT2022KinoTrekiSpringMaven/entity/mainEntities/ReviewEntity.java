@@ -1,29 +1,29 @@
-package com.example.PT2022KinoTrekiSpringMaven.entity;
+package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name = "comment")
-public class CommentEntity {
+@Table(name = "review")
+public class ReviewEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //private Long video_id;
     //private Long user_id;
+    //private Long review_type_id;
     private String content;
     private Date add_date;
     private Boolean output_state;
 
-    @OneToMany(fetch = FetchType.LAZY,
-        mappedBy = "comment",
-        cascade = CascadeType.ALL)
-    private List<CommentComplaintEntity> complaints;
+    @ManyToOne
+    @JoinColumn(name = "review_type_id")
+    private ReviewTypeEntity review_type;
 
     @ManyToOne
     @JoinColumn(name = "video_id")
@@ -32,4 +32,9 @@ public class CommentEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+    @OneToMany(fetch = FetchType.LAZY,
+        mappedBy = "review",
+        cascade = CascadeType.ALL)
+    private List<ReviewComplaintEntity> complaints;
 }

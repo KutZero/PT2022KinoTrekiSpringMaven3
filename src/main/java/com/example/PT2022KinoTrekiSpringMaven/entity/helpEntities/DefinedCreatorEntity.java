@@ -1,6 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,9 +24,9 @@ public class DefinedCreatorEntity {
 
     @ManyToOne
     @JoinColumn(name = "creator_id")
-    private VideoEntity creator;
+    private CreatorEntity creator;
 
     @ManyToOne
     @JoinColumn(name = "creator_role_id")
-    private VideoEntity creator_role;
+    private CreatorRoleEntity creator_role;
 }
