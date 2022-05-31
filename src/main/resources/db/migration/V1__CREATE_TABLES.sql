@@ -137,8 +137,8 @@ CREATE TABLE IF NOT EXISTS video(
     tagline character varying(60),
     description text NOT NULL,
     poster_path text NOT NULL,
-    trailer_link text NOT NULL,
-    add_date date NOT NULL
+    trailer_link text,
+    add_date date
 ) TABLESPACE pg_default;
 
 
