@@ -12,8 +12,16 @@ public class CommentComplaintEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id;
-    private Long comment_id;
+    //private Long user_id;
+    //private Long comment_id;
     private String content;
     private Date add_date;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @ManyToOne
+    @JoinColumn(name = "comment_id")
+    private CommentEntity comment;
 }

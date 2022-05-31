@@ -30,8 +30,24 @@ public class UserEntity {
         cascade = CascadeType.ALL)
     private List<ReviewEntity> reviews;
 
-    /*@OneToMany(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "user",
         cascade = CascadeType.ALL)
-    private List<ReviewComplaintEntity> review_complaint;*/
+    private List<ReviewComplaintEntity> review_complaints;
+
+    @OneToMany(fetch = FetchType.LAZY,
+        mappedBy = "user",
+        cascade = CascadeType.ALL)
+    private List<CommentComplaintEntity> comment_complaints;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "user",
+            cascade = CascadeType.ALL)
+    private List<CommentEntity> comments;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "user",
+            cascade = CascadeType.ALL)
+    private List<TimeCodeEntity> time_codes;
+
 }

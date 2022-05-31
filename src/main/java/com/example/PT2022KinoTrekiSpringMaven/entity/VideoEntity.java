@@ -38,4 +38,19 @@ public class VideoEntity {
     @ManyToOne
     @JoinColumn(name = "age_rating_id")
     private AgeRatingEntity rating;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "video",
+            cascade = CascadeType.ALL)
+    private List<CommentEntity> comments;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "video",
+            cascade = CascadeType.ALL)
+    private List<TimeCodeEntity> time_codes;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "video",
+            cascade = CascadeType.ALL)
+    private List<DefinedCreatorEntity> def_creators;
 }

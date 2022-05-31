@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS music(
 CREATE TABLE IF NOT EXISTS comment(
     id BIGSERIAL NOT NULL PRIMARY KEY,
     video_id BIGINT NOT NULL,
-    creator_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
     content text NOT NULL,
     add_date date NOT NULL,
     output_state boolean NOT NULL

@@ -12,16 +12,16 @@ public class ReviewComplaintEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id;
-    private Long review_id;
+    //private Long user_id;
+    //private Long review_id;
     private String content;
     private Date add_date;
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;*/
+    private UserEntity user;
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "review_id")
-    private ReviewEntity review;*/
+    private ReviewEntity review;
 }

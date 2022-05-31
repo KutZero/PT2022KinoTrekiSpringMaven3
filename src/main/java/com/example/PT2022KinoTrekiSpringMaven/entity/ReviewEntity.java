@@ -33,8 +33,8 @@ public class ReviewEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    /*@OneToMany(fetch = FetchType.LAZY,
-        mappedBy = "",
+    @OneToMany(fetch = FetchType.LAZY,
+        mappedBy = "review",
         cascade = CascadeType.ALL)
-    private List<ReviewComplaintEntity> complaints;*/
+    private List<ReviewComplaintEntity> complaints;
 }

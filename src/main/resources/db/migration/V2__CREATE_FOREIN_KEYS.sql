@@ -60,7 +60,7 @@ ALTER TABLE comment
         ON UPDATE CASCADE;
 
 ALTER TABLE comment
-    ADD CONSTRAINT creator_id_fk FOREIGN KEY (creator_id) REFERENCES creator (id)
+    ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES user_table (id)
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
