@@ -1,9 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.UserEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.AgeRatingEntity;
-import com.example.PT2022KinoTrekiSpringMaven.reposotory.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,15 +43,15 @@ public class VideoController {
     }*/
 
     @GetMapping
-    public ResponseEntity getOneVideo(@RequestParam Long id){
+    public ResponseEntity getOneSimpleVideo(@RequestParam Long id){
         try{
             //ошибки
             // такого рейтинга не существует
             //videoService.addVideo(video);
             //return ResponseEntity.ok(videoService.getById(id));
             //return ResponseEntity.ok("ok" + id);
-            //return ResponseEntity.ok(videoService.getById(id));
-            return ResponseEntity.ok("Видео получено");
+            return ResponseEntity.ok(videoService.getSimpleVideoById(id));
+            //return ResponseEntity.ok("Видео получено");
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка поиска видео");

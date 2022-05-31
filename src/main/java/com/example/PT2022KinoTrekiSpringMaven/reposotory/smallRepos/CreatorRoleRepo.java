@@ -1,6 +1,6 @@
-package com.example.PT2022KinoTrekiSpringMaven.reposotory.helpRepos;
+package com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.CreatorRoleEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CreatorRoleRepo extends CrudRepository<CreatorRoleEntity, Long> {

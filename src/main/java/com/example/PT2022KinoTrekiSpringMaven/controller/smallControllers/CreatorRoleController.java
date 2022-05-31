@@ -1,7 +1,7 @@
-package com.example.PT2022KinoTrekiSpringMaven.controller.helpControllers;
+package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.CreatorRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.reposotory.helpRepos.CreatorRoleRepo;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
+import com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos.CreatorRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

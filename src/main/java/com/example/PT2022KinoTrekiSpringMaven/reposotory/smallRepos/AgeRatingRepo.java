@@ -1,11 +1,7 @@
-package com.example.PT2022KinoTrekiSpringMaven.reposotory.helpRepos;
+package com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.AgeRatingEntity;
-import org.springframework.data.jpa.repository.Query;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface AgeRatingRepo extends CrudRepository<AgeRatingEntity, Long> {
 

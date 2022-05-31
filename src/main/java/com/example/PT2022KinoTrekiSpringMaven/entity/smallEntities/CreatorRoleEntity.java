@@ -1,6 +1,6 @@
-package com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities;
+package com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.DefinedCreatorEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
 import lombok.Data;
 
 import javax.persistence.*;

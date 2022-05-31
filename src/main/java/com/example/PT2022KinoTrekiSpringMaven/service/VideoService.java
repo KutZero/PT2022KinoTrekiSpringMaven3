@@ -1,17 +1,12 @@
 package com.example.PT2022KinoTrekiSpringMaven.service;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.UserEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.model.SimpleVideo;
 import com.example.PT2022KinoTrekiSpringMaven.reposotory.VideoRepo;
-import com.example.PT2022KinoTrekiSpringMaven.reposotory.helpRepos.AgeRatingRepo;
+import com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.List;
 
 @Service
 public class VideoService {
@@ -36,10 +31,11 @@ public class VideoService {
         videoRepo.deleteById(id);
     }
 
-    /*public VideoEntity getById(Long id){
+    public SimpleVideo getSimpleVideoById(Long id){
         // какая то проверка
         //System.out.println(id);
         //VideoEntity video = new VideoEntity(); //videoRepo.findById(id).get();
-        return video;
-    }*/
+        VideoEntity video = videoRepo.findById(id).get();
+        return SimpleVideo.toModel(video);
+    }
 }

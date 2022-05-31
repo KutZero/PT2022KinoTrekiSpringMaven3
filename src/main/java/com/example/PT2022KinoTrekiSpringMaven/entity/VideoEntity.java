@@ -1,6 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGenreEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -33,7 +35,7 @@ public class VideoEntity {
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "video",
         cascade = CascadeType.ALL)
-    private List<DefinedVideoGenreEntity> genres;
+    private List<DefinedVideoGenreEntity> def_genres;
 
     @ManyToOne
     @JoinColumn(name = "age_rating_id")

@@ -1,10 +1,9 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.UserRoleEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.UserRoleEntity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.List;
 
 @Data
