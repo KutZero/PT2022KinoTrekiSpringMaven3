@@ -24,12 +24,7 @@ public class DefinedCreatorController {
         try{
             //ошибки
             //
-
             definedCreatorService.addDefinedCreator(video_id, creator_id, creator_role_id);
-
-            //return ResponseEntity.ok(definedCreatorService.test(video_id, creator_id, creator_role_id));
-
-            //return ResponseEntity.ok(video_id);
             return ResponseEntity.ok("Создатель конкретного видео добавлен");
         }
         catch (VideoNotFountExceptioin | CreatorNotFountExceptioin | CreatorRoleNotFountExceptioin e){
@@ -45,12 +40,10 @@ public class DefinedCreatorController {
         try{
             //ошибки
             // такого рейтинга не существует
-            //videoService.addVideo(video);
-            //return ResponseEntity.ok(videoService.getById(id));
-            //return ResponseEntity.ok("ok" + id);
-            //return ResponseEntity.ok(videoService.getSimpleVideoById(id));
-            //return ResponseEntity.ok("Видео получено");
             return ResponseEntity.ok(definedCreatorService.getDefinedCreator(id));
+        }
+        catch (DefinedCreatorNotFoundException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка поиска видео");

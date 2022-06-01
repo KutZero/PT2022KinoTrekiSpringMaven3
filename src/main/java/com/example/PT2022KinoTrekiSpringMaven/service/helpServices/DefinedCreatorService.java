@@ -9,6 +9,7 @@ import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCre
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreator;
 import com.example.PT2022KinoTrekiSpringMaven.repository.helpRepos.DefinedCreatorRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CreatorRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
@@ -31,11 +32,7 @@ public class DefinedCreatorService {
     @Autowired
     private CreatorRoleRepo creatorRoleRepo;
 
-    public DefinedCreatorService test(Long video_id){
-        return new DefinedCreatorService();
-    }
-
-    public DefinedCreatorEntity addDefinedCreator(Long video_id, Long creator_id, Long creator_role_id) throws VideoNotFountExceptioin, CreatorNotFountExceptioin, CreatorRoleNotFountExceptioin{
+    public DefinedCreator addDefinedCreator(Long video_id, Long creator_id, Long creator_role_id) throws VideoNotFountExceptioin, CreatorNotFountExceptioin, CreatorRoleNotFountExceptioin{
         // ошибки
         // нет такого видео
         // нет такого создателя
@@ -69,7 +66,7 @@ public class DefinedCreatorService {
         }*/
 
         //definedCreator.setRating(ageRating);
-        return definedCreatorRepo.save(definedCreator);
+        return DefinedCreator.toModel(definedCreatorRepo.save(definedCreator));
     }
 
     public void deleteDefinedCreator(Long id) throws DefinedCreatorNotFoundException {
@@ -81,13 +78,13 @@ public class DefinedCreatorService {
         definedCreatorRepo.deleteById(id);
     }
 
-    public DefinedCreatorEntity getDefinedCreator(Long id) throws DefinedCreatorNotFoundException {
+    public DefinedCreator getDefinedCreator(Long id) throws DefinedCreatorNotFoundException {
 
         if(!definedCreatorRepo.existsById(id)){
             throw new DefinedCreatorNotFoundException("Указанного конкретного создателя не существует");
         }
 
-        return definedCreatorRepo.findById(id).get();
+        return DefinedCreator.toModel(definedCreatorRepo.findById(id).get());
     }
 
 }

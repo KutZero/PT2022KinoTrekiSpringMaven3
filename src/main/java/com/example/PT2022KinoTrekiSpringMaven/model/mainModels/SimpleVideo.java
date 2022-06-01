@@ -15,8 +15,6 @@ public class SimpleVideo {
     private String poster_path;
     private List<DefinedCreator> def_creators;
     private List<DefinedVideoGenre> def_genres;
-    //private List<DefinedCreatorEntity> def_creators;
-    //private List<DefinedVideoGenreEntity> def_genres;
 
     public static SimpleVideo toModel(VideoEntity video){
         SimpleVideo model = new SimpleVideo();
@@ -26,9 +24,6 @@ public class SimpleVideo {
         model.setPoster_path(video.getPoster_path());
         model.setDef_creators(video.getDef_creators().stream().map(DefinedCreator::toModel).collect(Collectors.toList()));
         model.setDef_genres(video.getDef_genres().stream().map(DefinedVideoGenre::toModel).collect(Collectors.toList()));
-        //model.setDef_creators(video.getDef_creators());
-        //model.setDefGenres(video.getDef_genres());
-
         return model;
     }
 
@@ -77,17 +72,4 @@ public class SimpleVideo {
         this.def_genres = def_genres;
     }
 
-    /*public List<DefinedCreatorEntity> getDef_creators() {
-        return def_creators;
-    }
-    public void setDef_creators(List<DefinedCreatorEntity> def_creators) {
-        this.def_creators = def_creators;
-    }*/
-
-    /*public List<DefinedVideoGenreEntity> getDefGenres() {
-        return def_genres;
-    }
-    public void setDefGenres(List<DefinedVideoGenreEntity> def_genres) {
-        this.def_genres = def_genres;
-    }*/
 }
