@@ -4,10 +4,9 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreator
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorAlreadyExistException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountException;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreator;
 import com.example.PT2022KinoTrekiSpringMaven.repository.helpRepos.DefinedCreatorRepo;
@@ -32,7 +31,7 @@ public class DefinedCreatorService {
     @Autowired
     private CreatorRoleRepo creatorRoleRepo;
 
-    public DefinedCreator addDefinedCreator(Long video_id, Long creator_id, Long creator_role_id) throws VideoNotFountExceptioin, CreatorNotFountExceptioin, CreatorRoleNotFountExceptioin{
+    public DefinedCreator addDefinedCreator(Long video_id, Long creator_id, Long creator_role_id) throws VideoNotFoundException, CreatorNotFountException, CreatorRoleNotFountExceptioin{
         // ошибки
         // нет такого видео
         // нет такого создателя
@@ -42,11 +41,11 @@ public class DefinedCreatorService {
         DefinedCreatorEntity definedCreator = new DefinedCreatorEntity();
 
         if (!videoRepo.existsById(video_id)){
-            throw new VideoNotFountExceptioin("Указанного видео не существует");
+            throw new VideoNotFoundException("Указанного видео не существует");
         }
 
         if(!creatorRepo.existsById(creator_id)){
-            throw new CreatorNotFountExceptioin("Указанного создателя не существует");
+            throw new CreatorNotFountException("Указанного создателя не существует");
         }
 
         if(!creatorRoleRepo.existsById(creator_role_id)){

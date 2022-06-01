@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ public class VideoController {
             videoService.editVideo(video, rating_id, video_id);
             return ResponseEntity.ok("Видео изменено");
         }
-        catch (VideoNotFountExceptioin | AgeRatingNotFoundException e){
+        catch (VideoNotFoundException | AgeRatingNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
@@ -56,7 +56,7 @@ public class VideoController {
             // такого видео не существует
             return ResponseEntity.ok(videoService.getSimpleVideoById(id));
         }
-        catch (VideoNotFountExceptioin e){
+        catch (VideoNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
@@ -72,7 +72,7 @@ public class VideoController {
             videoService.deleteVideo(id);
             return ResponseEntity.ok("Видео удалено");
         }
-        catch (VideoNotFountExceptioin e){
+        catch (VideoNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){

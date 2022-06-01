@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.CreatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +34,7 @@ public class CreatorController {
             // такой сущности не существует
             return ResponseEntity.ok(creatorService.getOneCreator(id));
         }
-        catch (CreatorNotFountExceptioin e){
+        catch (CreatorNotFountException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
@@ -51,7 +51,7 @@ public class CreatorController {
             creatorService.deleteCreator(id);
             return ResponseEntity.ok("Роль создателя удалена");
         }
-        catch (CreatorNotFountExceptioin e){
+        catch (CreatorNotFountException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){

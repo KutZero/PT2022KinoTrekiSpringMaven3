@@ -2,20 +2,20 @@ package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
 
-public class Creator {
+public class CreatorModel {
     private String name;
     private String last_name;
     private String add_names;
 
-    public static Creator toModel(CreatorEntity creator){
-        Creator model = new Creator();
+    public static CreatorModel toModel(CreatorEntity creator){
+        CreatorModel model = new CreatorModel();
         model.setName(creator.getName());
         model.setAdd_names(creator.getAdd_names());
         model.setLast_name(creator.getLast_name());
         return model;
     }
 
-    public Creator() {
+    public CreatorModel() {
     }
 
     public String getName() {

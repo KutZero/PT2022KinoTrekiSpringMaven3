@@ -3,6 +3,7 @@ package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,6 +26,8 @@ public class VideoEntity {
     private String description;
     private String poster_path;
     private String trailer_link;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
 
     @OneToMany(fetch = FetchType.LAZY,

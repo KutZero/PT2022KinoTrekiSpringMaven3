@@ -1,5 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,8 @@ public class TimeCodeEntity {
     //private Long user_id;
     //private Long video_id;
     private Long like_count;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
     private Boolean output_state;
     private Time trek_start;

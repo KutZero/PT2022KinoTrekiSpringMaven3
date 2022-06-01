@@ -2,9 +2,9 @@ package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideo;
+import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +19,24 @@ public class VideoService {
     @Autowired
     private AgeRatingRepo ratingRepo;
 
-    public SimpleVideo addVideo(VideoEntity video, Long rating_id){
+    public SimpleVideoModel addVideo(VideoEntity video, Long rating_id){
         // ошибки
         // нет такого возрастнного рейтинга
         AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
         video.setRating(ageRating);
-        return SimpleVideo.toModel(videoRepo.save(video));
+        return SimpleVideoModel.toModel(videoRepo.save(video));
     }
 
-    public void deleteVideo(Long id) throws VideoNotFountExceptioin {
+    public void deleteVideo(Long id) throws VideoNotFoundException {
         // ошибки
         // есть ли такое видео
         if (!videoRepo.existsById(id)){
-            throw new VideoNotFountExceptioin("Указанного видео не существует");
+            throw new VideoNotFoundException("Указанного видео не существует");
         }
         videoRepo.deleteById(id);
     }
 
-    public SimpleVideo editVideo(VideoEntity video, Long rating_id, Long video_id) throws VideoNotFountExceptioin, AgeRatingNotFoundException {
+    public SimpleVideoModel editVideo(VideoEntity video, Long rating_id, Long video_id) throws VideoNotFoundException, AgeRatingNotFoundException {
         // ошибки
         // есть ли такое видео
         // нет такого возрастнного рейтинга
@@ -44,7 +44,7 @@ public class VideoService {
         // VideoEntity videoEntity = videoRepo.findById(video_id).get();
 
         if (!videoRepo.existsById(video_id)){//(videoEntity == null){
-            throw new VideoNotFountExceptioin("Видео не найдено");
+            throw new VideoNotFoundException("Видео не найдено");
         }
 
         if (!ratingRepo.existsById(rating_id)){
@@ -72,17 +72,17 @@ public class VideoService {
         videoEntity.setRelease_year(video.getRelease_year());
         videoEntity.setTagline(video.getTagline());
 
-        return SimpleVideo.toModel(videoRepo.save(videoEntity));
+        return SimpleVideoModel.toModel(videoRepo.save(videoEntity));
     }
 
-    public SimpleVideo getSimpleVideoById(Long id) throws VideoNotFountExceptioin {
+    public SimpleVideoModel getSimpleVideoById(Long id) throws VideoNotFoundException {
         // какая то проверка
         //System.out.println(id);
         //VideoEntity video = new VideoEntity(); //videoRepo.findById(id).get();
         if (!videoRepo.existsById(id)){
-            throw new VideoNotFountExceptioin("Указанного видео не существует");
+            throw new VideoNotFoundException("Указанного видео не существует");
         }
         VideoEntity video = videoRepo.findById(id).get();
-        return SimpleVideo.toModel(video);
+        return SimpleVideoModel.toModel(video);
     }
 }

@@ -3,11 +3,9 @@ package com.example.PT2022KinoTrekiSpringMaven.service.helpServices;
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedVideoGenreNorFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.VideoGenreNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreator;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenre;
 import com.example.PT2022KinoTrekiSpringMaven.repository.helpRepos.DefinedVideoGenreRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
@@ -27,7 +25,7 @@ public class DefinedVideoGenreService {
     @Autowired
     private VideoRepo videoRepo;
 
-    public DefinedVideoGenre addDefinedVideoGenre(Long video_id, Long video_genre_id) throws VideoNotFountExceptioin, VideoGenreNotFountExceptioin {
+    public DefinedVideoGenre addDefinedVideoGenre(Long video_id, Long video_genre_id) throws VideoNotFoundException, VideoGenreNotFountExceptioin {
         // ошибки
         // нет такого видео
         // нет такого жанра видео
@@ -36,7 +34,7 @@ public class DefinedVideoGenreService {
         DefinedVideoGenreEntity definedVideoGenreEntity = new DefinedVideoGenreEntity();
 
         if (!videoRepo.existsById(video_id)){
-            throw new VideoNotFountExceptioin("Указанного видео не существует");
+            throw new VideoNotFoundException("Указанного видео не существует");
         }
 
         if (!videoGenreRepo.existsById(video_id)){

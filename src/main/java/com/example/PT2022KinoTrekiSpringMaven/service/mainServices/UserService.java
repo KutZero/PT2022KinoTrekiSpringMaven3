@@ -4,7 +4,7 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.UserRoleEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.UserRoleNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleUser;
+import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleUserModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.UserRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.UserRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class UserService {
     @Autowired
     private UserRoleRepo userRoleRepo;
 
-    public SimpleUser singUpUser(UserEntity user, Long user_role_id) throws UserRoleNotFoundException {
+    public SimpleUserModel singUpUser(UserEntity user, Long user_role_id) throws UserRoleNotFoundException {
         // ошибки
         // нет такого возрастнного рейтинга
         if (!userRoleRepo.existsById(user_role_id)){
@@ -28,7 +28,7 @@ public class UserService {
 
         UserRoleEntity userRole = userRoleRepo.findById(user_role_id).get();
         user.setUser_role(userRole);
-        return SimpleUser.toModel(userRepo.save(user));
+        return SimpleUserModel.toModel(userRepo.save(user));
     }
 
     public void deleteUser(Long id) throws UserNotFoundException {
@@ -40,13 +40,13 @@ public class UserService {
         userRepo.deleteById(id);
     }
 
-    public SimpleUser getOneSimpleUserById(Long id) throws UserNotFoundException {
+    public SimpleUserModel getOneSimpleUserById(Long id) throws UserNotFoundException {
         // какая то проверка
         if (!userRepo.existsById(id)){
             throw new UserNotFoundException("Указанного пользователя не существует");
         }
         UserEntity user = userRepo.findById(id).get();
-        return SimpleUser.toModel(user);
+        return SimpleUserModel.toModel(user);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +20,8 @@ public class ReviewEntity {
     //private Long review_type_id;
     private String content;
     private Long like_count;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
     private Boolean output_state;
 

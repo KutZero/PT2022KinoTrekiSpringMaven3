@@ -1,5 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,6 +16,8 @@ public class CommentComplaintEntity {
     //private Long user_id;
     //private Long comment_id;
     private String content;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
 
     @ManyToOne

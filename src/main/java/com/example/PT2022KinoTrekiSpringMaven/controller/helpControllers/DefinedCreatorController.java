@@ -1,9 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.helpControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorAlreadyExistException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountException;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.service.helpServices.DefinedCreatorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class DefinedCreatorController {
             definedCreatorService.addDefinedCreator(video_id, creator_id, creator_role_id);
             return ResponseEntity.ok("Создатель конкретного видео добавлен");
         }
-        catch (VideoNotFountExceptioin | CreatorNotFountExceptioin | CreatorRoleNotFountExceptioin e){
+        catch (VideoNotFoundException | CreatorNotFountException | CreatorRoleNotFountExceptioin e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){

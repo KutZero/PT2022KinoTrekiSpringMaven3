@@ -2,18 +2,18 @@ package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
 
-public class SimpleUser {
+public class SimpleUserModel {
     private String login;
     private String photo_path;
 
-    static public SimpleUser toModel(UserEntity userEntity){
-        SimpleUser model = new SimpleUser();
+    static public SimpleUserModel toModel(UserEntity userEntity){
+        SimpleUserModel model = new SimpleUserModel();
         model.setLogin(userEntity.getLogin());
         model.setPhoto_path(userEntity.getPhoto_path());
         return model;
     }
 
-    public SimpleUser() {
+    public SimpleUserModel() {
     }
 
     public String getLogin() {

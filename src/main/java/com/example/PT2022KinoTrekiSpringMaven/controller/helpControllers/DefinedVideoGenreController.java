@@ -1,10 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.helpControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedVideoGenreNorFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.VideoGenreNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.service.helpServices.DefinedVideoGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +24,7 @@ public class DefinedVideoGenreController {
             definedVideoGenreService.addDefinedVideoGenre(video_id, video_genre_id);
             return ResponseEntity.ok("Жанр конкретного видео добавлен");
         }
-        catch (VideoNotFountExceptioin | VideoGenreNotFountExceptioin e){
+        catch (VideoNotFoundException | VideoGenreNotFountExceptioin e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){

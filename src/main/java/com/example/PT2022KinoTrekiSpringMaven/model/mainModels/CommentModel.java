@@ -4,20 +4,22 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CommentEntity;
 
 import java.sql.Date;
 
-public class Comment {
+public class CommentModel {
     private String content;
     private Long like_count;
     private Date add_date;
+    private SimpleUserModel simpleUserModel;
 
-    static public Comment toModel(CommentEntity commentEntity){
-        Comment model = new Comment();
+    static public CommentModel toModel(CommentEntity commentEntity){
+        CommentModel model = new CommentModel();
         model.setAdd_date(commentEntity.getAdd_date());
         model.setContent(commentEntity.getContent());
         model.setLike_count(commentEntity.getLike_count());
+        model.setSimpleUser(SimpleUserModel.toModel(commentEntity.getUser()));
         return model;
     }
 
-    public Comment() {
+    public CommentModel() {
     }
 
     public String getContent() {
@@ -39,5 +41,12 @@ public class Comment {
     }
     public void setAdd_date(Date add_date) {
         this.add_date = add_date;
+    }
+
+    public SimpleUserModel getSimpleUser() {
+        return simpleUserModel;
+    }
+    public void setSimpleUser(SimpleUserModel simpleUserModel) {
+        this.simpleUserModel = simpleUserModel;
     }
 }

@@ -8,7 +8,7 @@ import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenre
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SimpleVideo {
+public class SimpleVideoModel {
     private String name;
     private int release_year;
     private String description;
@@ -16,8 +16,8 @@ public class SimpleVideo {
     private List<DefinedCreator> def_creators;
     private List<DefinedVideoGenre> def_genres;
 
-    public static SimpleVideo toModel(VideoEntity video){
-        SimpleVideo model = new SimpleVideo();
+    public static SimpleVideoModel toModel(VideoEntity video){
+        SimpleVideoModel model = new SimpleVideoModel();
         model.setName(video.getName());
         model.setRelease_year(video.getRelease_year());
         model.setDescription(video.getDescription());
@@ -27,7 +27,7 @@ public class SimpleVideo {
         return model;
     }
 
-    public SimpleVideo() {
+    public SimpleVideoModel() {
     }
 
     public String getName() {
