@@ -1,6 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +17,11 @@ public class VideoController {
 
     @PostMapping
     public ResponseEntity addVideo(@RequestBody VideoEntity video,
-                                   @RequestParam int age_rating){
+                                   @RequestParam Long rating_id){
         try{
             //ошибки
             // age_rating не существует
-            videoService.addVideo(video, age_rating);
+            videoService.addVideo(video, rating_id);
             return ResponseEntity.ok("Видео добавлено");
         }
         catch (Exception e){
@@ -29,15 +31,18 @@ public class VideoController {
 
     @PutMapping
     public ResponseEntity editVideo(@RequestBody VideoEntity video,
-                                    @RequestParam int age_rating,
+                                    @RequestParam Long rating_id,
                                     @RequestParam Long video_id){
         try{
             //ошибки
             // рейтинг не существует
             // id уже занят
             // видео не существует
-            videoService.editVideo(video, age_rating, video_id);
+            videoService.editVideo(video, rating_id, video_id);
             return ResponseEntity.ok("Видео изменено");
+        }
+        catch (VideoNotFountExceptioin | AgeRatingNotFoundException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка изменения видео");

@@ -3,6 +3,7 @@ package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
@@ -18,10 +19,10 @@ public class VideoService {
     @Autowired
     private AgeRatingRepo ratingRepo;
 
-    public VideoEntity addVideo(VideoEntity video, int age_rating){
+    public VideoEntity addVideo(VideoEntity video, Long rating_id){
         // ошибки
         // нет такого возрастнного рейтинга
-        AgeRatingEntity ageRating = ratingRepo.findByRating(age_rating);
+        AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
         video.setRating(ageRating);
         return videoRepo.save(video);
     }
@@ -32,30 +33,38 @@ public class VideoService {
         videoRepo.deleteById(id);
     }
 
-    public SimpleVideo editVideo(VideoEntity video, int age_rating, Long video_id) throws VideoNotFountExceptioin {
+    public SimpleVideo editVideo(VideoEntity video, Long rating_id, Long video_id) throws VideoNotFountExceptioin, AgeRatingNotFoundException {
         // ошибки
         // есть ли такое видео
         // нет такого возрастнного рейтинга
-        VideoEntity videoEntity = videoRepo.findById(video_id).get();
-        if (videoEntity == null){
+        // не меняет конкретные жанры и конкретных создателей видео
+        // VideoEntity videoEntity = videoRepo.findById(video_id).get();
+
+        if (!videoRepo.existsById(video_id)){//(videoEntity == null){
             throw new VideoNotFountExceptioin("Видео не найдено");
         }
 
-        if (age_rating != videoEntity.getRating().getRating()) {
-            AgeRatingEntity ageRating = ratingRepo.findByRating(age_rating);
+        if (!ratingRepo.existsById(rating_id)){
+            throw new AgeRatingNotFoundException("Указанного возрастного рейтинга не существует");
+        }
+
+        VideoEntity videoEntity = videoRepo.findById(video_id).get();
+
+        if (!rating_id.equals(videoEntity.getRating().getId())) {
+            AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
             videoEntity.setRating(ageRating);
         }
 
         videoEntity.setComments(video.getComments());
         videoEntity.setAdd_date(video.getAdd_date());
-        videoEntity.setDef_creators(video.getDef_creators());
+        //videoEntity.setDef_creators(video.getDef_creators());
         videoEntity.setDescription(video.getDescription());
         videoEntity.setDuration(video.getDuration());
         videoEntity.setName(video.getName());
         videoEntity.setTrailer_link(video.getTrailer_link());
         videoEntity.setTime_codes(video.getTime_codes());
         videoEntity.setReviews(video.getReviews());
-        videoEntity.setDef_genres(video.getDef_genres());
+        //videoEntity.setDef_genres(video.getDef_genres());
         videoEntity.setPoster_path(video.getPoster_path());
         videoEntity.setRelease_year(video.getRelease_year());
         videoEntity.setTagline(video.getTagline());

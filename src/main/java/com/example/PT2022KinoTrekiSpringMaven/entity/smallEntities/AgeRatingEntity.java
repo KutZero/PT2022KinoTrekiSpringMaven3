@@ -13,7 +13,7 @@ public class AgeRatingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int rating;
+    private String rating;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "rating",

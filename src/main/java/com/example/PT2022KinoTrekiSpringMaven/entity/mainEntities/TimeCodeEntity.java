@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 
 @Data
 @Entity
@@ -18,6 +19,8 @@ public class TimeCodeEntity {
     private Long like_count;
     private Date add_date;
     private Boolean output_state;
+    private Time trek_start;
+    private Time trek_end;
 
     @ManyToOne
     @JoinColumn(name = "music_id")

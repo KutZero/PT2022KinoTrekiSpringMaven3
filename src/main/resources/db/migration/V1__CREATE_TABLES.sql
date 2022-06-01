@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS music_genre(
 /*Таблица Возрастной рейтинг*/
 CREATE TABLE IF NOT EXISTS age_rating(
     id BIGSERIAL NOT NULL PRIMARY KEY,
-    rating int NOT NULL UNIQUE
+    rating character varying(10) NOT NULL UNIQUE
 ) TABLESPACE pg_default;
 
 /*Таблица Создатель*/
@@ -104,6 +104,8 @@ CREATE TABLE IF NOT EXISTS time_code(
     music_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,
     video_id BIGINT NOT NULL,
+    trek_start time without time zone NOT NULL,
+    trek_end time without time zone NOT NULL,
     like_count BIGINT,
     add_date date NOT NULL,
     output_state boolean NOT NULL

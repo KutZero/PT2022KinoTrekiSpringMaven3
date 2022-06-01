@@ -42,9 +42,9 @@ INSERT INTO music_genre VALUES (5, 'Даб степ');
 INSERT INTO music_genre VALUES (6, 'Фонк');
 INSERT INTO music_genre VALUES (7, 'Поп');
 
-INSERT INTO age_rating VALUES (1, 0);
-INSERT INTO age_rating VALUES (2, 6);
-INSERT INTO age_rating VALUES (3, 12);
-INSERT INTO age_rating VALUES (4, 16);
-INSERT INTO age_rating VALUES (5, 18);
+INSERT INTO age_rating VALUES (1, '0+');
+INSERT INTO age_rating VALUES (2, '6+');
+INSERT INTO age_rating VALUES (3, '12+');
+INSERT INTO age_rating VALUES (4, '16+');
+INSERT INTO age_rating VALUES (5, '18+');
 

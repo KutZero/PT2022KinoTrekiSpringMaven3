@@ -24,7 +24,6 @@ public class MusicGenreController {
             //ошибки
             // такая сущность уже существует
             // id уже занят
-            //musicGenreRepo.save(musicGenre);
             musicGenreService.createEntity(musicGenre);
             return ResponseEntity.ok("Жанр музыки добавлен");
         }
@@ -38,8 +37,6 @@ public class MusicGenreController {
         try{
             //ошибки
             // такой сущности не существует
-            //return ResponseEntity.ok(musicGenreRepo.findByName(name));
-            //return ResponseEntity.ok("Запись получена");
             return ResponseEntity.ok(musicGenreService.getEntity(id));
         }
         catch (MusicGenreNotFoundException e){
@@ -56,8 +53,6 @@ public class MusicGenreController {
             //ошибки
             // такой сущности не существует
             // с ним связаны многие записи (не стоит удалять)
-            /*MusicGenreEntity creatorRole = musicGenreRepo.findByName(name);
-            musicGenreRepo.delete(creatorRole);*/
             musicGenreService.deleteEntity(id);
             return ResponseEntity.ok("Жанр музыки удален");
         }

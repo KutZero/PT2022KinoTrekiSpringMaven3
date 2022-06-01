@@ -8,7 +8,7 @@ public interface AgeRatingRepo extends CrudRepository<AgeRatingEntity, Long> {
     //@Query("SELECT * FROM age_rating WHERE rating = :rating")
     //AgeRatingEntity findByRating(@Param("rating") Long rating);
 
-    AgeRatingEntity findByRating(int rating);
+    //AgeRatingEntity findByRating(int rating);
 
     //Long deleteByRating(int rating); // Не работает
 }
