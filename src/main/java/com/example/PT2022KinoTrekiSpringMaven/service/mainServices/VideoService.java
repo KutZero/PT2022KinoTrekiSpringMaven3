@@ -10,6 +10,10 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VideoService {
@@ -98,4 +102,5 @@ public class VideoService {
         VideoEntity video = videoRepo.findById(id).get();
         return ExtendedVideoModel.toModel(video);
     }
+
 }
