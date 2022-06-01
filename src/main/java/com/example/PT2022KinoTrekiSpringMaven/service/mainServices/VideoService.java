@@ -19,17 +19,20 @@ public class VideoService {
     @Autowired
     private AgeRatingRepo ratingRepo;
 
-    public VideoEntity addVideo(VideoEntity video, Long rating_id){
+    public SimpleVideo addVideo(VideoEntity video, Long rating_id){
         // ошибки
         // нет такого возрастнного рейтинга
         AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
         video.setRating(ageRating);
-        return videoRepo.save(video);
+        return SimpleVideo.toModel(videoRepo.save(video));
     }
 
-    public void deleteVideo(Long id){
+    public void deleteVideo(Long id) throws VideoNotFountExceptioin {
         // ошибки
         // есть ли такое видео
+        if (!videoRepo.existsById(id)){
+            throw new VideoNotFountExceptioin("Указанного видео не существует");
+        }
         videoRepo.deleteById(id);
     }
 

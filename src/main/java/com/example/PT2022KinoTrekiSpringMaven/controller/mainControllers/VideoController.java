@@ -73,6 +73,9 @@ public class VideoController {
             videoService.deleteVideo(id);
             return ResponseEntity.ok("Видео удалено");
         }
+        catch (VideoNotFountExceptioin e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка удаления рейтинга");
         }
