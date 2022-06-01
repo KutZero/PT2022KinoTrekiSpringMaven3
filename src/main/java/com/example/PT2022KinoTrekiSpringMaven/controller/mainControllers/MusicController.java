@@ -18,7 +18,7 @@ public class MusicController {
 
     @PostMapping
     public ResponseEntity addMusic(@RequestBody MusicEntity music,
-                                   @RequestParam Long c){
+                                   @RequestParam Long music_genre_id){
         try{
             // ошибки
             // id уже занят
