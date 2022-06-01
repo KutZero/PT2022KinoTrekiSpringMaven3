@@ -19,6 +19,7 @@ public class UserEntity {
     private String add_names;
     private String login;
     private String password;
+    private String photo_path;
 
     @ManyToOne
     @JoinColumn (name="user_role_id")

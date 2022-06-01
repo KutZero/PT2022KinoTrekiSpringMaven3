@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS comment(
     video_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,
     content text NOT NULL,
+    like_count BIGINT,
     add_date date NOT NULL,
     output_state boolean NOT NULL
 ) TABLESPACE pg_default;
@@ -84,7 +85,8 @@ CREATE TABLE IF NOT EXISTS user_table(
     last_name character varying(60) NOT NULL,
     add_names character varying(100),
     login character varying(60) NOT NULL UNIQUE,
-    password character varying(60) NOT NULL
+    password character varying(60) NOT NULL,
+    photo_path text NOT NULL
 ) TABLESPACE pg_default;
 
 /*Таблица Отзыв*/
@@ -94,6 +96,7 @@ CREATE TABLE IF NOT EXISTS review(
     user_id BIGINT NOT NULL,
     review_type_id BIGINT NOT NULL,
     content text NOT NULL,
+    like_count BIGINT,
     add_date date NOT NULL,
     output_state BOOLEAN NOT NULL
 ) TABLESPACE pg_default;

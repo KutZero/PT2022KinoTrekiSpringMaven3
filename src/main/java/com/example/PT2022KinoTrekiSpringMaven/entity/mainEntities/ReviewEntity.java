@@ -18,6 +18,7 @@ public class ReviewEntity {
     //private Long user_id;
     //private Long review_type_id;
     private String content;
+    private Long like_count;
     private Date add_date;
     private Boolean output_state;
 
