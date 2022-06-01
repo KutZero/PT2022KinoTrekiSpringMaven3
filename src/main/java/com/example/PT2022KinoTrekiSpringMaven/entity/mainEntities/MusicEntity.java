@@ -1,6 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.MusicGenreEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class MusicEntity {
     //private Long music_genre_id;
     private String name;
     private String group_name;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time duration;
 
     @OneToMany(fetch = FetchType.LAZY,

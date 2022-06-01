@@ -18,7 +18,6 @@ public class CommentEntity {
     //private Long user_id;
     private String content;
     private Long like_count;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
     private Boolean output_state;

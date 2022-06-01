@@ -22,7 +22,9 @@ public class TimeCodeEntity {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
     private Boolean output_state;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time trek_start;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time trek_end;
 
     @ManyToOne

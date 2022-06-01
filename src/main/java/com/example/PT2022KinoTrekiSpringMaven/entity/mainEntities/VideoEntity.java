@@ -19,6 +19,7 @@ public class VideoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //private Long age_rating_id;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time duration;
     private String name;
     private int release_year;
@@ -26,7 +27,6 @@ public class VideoEntity {
     private String description;
     private String poster_path;
     private String trailer_link;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date add_date;
 
