@@ -64,6 +64,9 @@ public class DefinedCreatorService {
         definedCreator.setCreator(creator);
         definedCreator.setCreator_role(creatorRole);
 
+        /*if(!definedCreatorRepo.existsByVideoAndCreator(video_id, creator_id)){
+            throw new DefinedCreatorAlreadyExistException("Указанный создатель уже существует");
+        }*/
 
         //definedCreator.setRating(ageRating);
         return definedCreatorRepo.save(definedCreator);
