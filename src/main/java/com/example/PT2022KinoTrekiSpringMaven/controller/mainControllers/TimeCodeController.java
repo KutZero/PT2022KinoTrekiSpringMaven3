@@ -41,7 +41,7 @@ public class TimeCodeController {
     }
 
     @GetMapping
-    public ResponseEntity getOneSimpleVideo(@RequestParam Long id){
+    public ResponseEntity getOneTimeCode(@RequestParam Long id){
         try{
             //ошибки
             // такого видео не существует
@@ -57,7 +57,7 @@ public class TimeCodeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteOneRating(@PathVariable Long id){
+    public ResponseEntity deleteOneTimeCode(@PathVariable Long id){
         try{
             //ошибки
             // такого видео не существует

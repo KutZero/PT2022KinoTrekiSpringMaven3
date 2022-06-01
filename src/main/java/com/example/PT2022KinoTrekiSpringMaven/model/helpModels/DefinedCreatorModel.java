@@ -2,22 +2,22 @@ package com.example.PT2022KinoTrekiSpringMaven.model.helpModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.CreatorModel;
-import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CreatorRole;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CreatorRoleModel;
 
-public class DefinedCreator {
+public class DefinedCreatorModel {
     //private VideoEntity videoEntity;
     private CreatorModel creatorModel;
-    private CreatorRole creatorRole;
+    private CreatorRoleModel creatorRoleModel;
 
-    static public DefinedCreator toModel(DefinedCreatorEntity creator){
-        DefinedCreator model = new DefinedCreator();
+    static public DefinedCreatorModel toModel(DefinedCreatorEntity creator){
+        DefinedCreatorModel model = new DefinedCreatorModel();
         model.setCreator(CreatorModel.toModel(creator.getCreator()));
-        model.setCreatorRole(CreatorRole.toModel(creator.getCreator_role()));
+        model.setCreatorRole(CreatorRoleModel.toModel(creator.getCreator_role()));
         //model.setVideoEntity(creator.getVideo());
         return model;
     }
 
-    public DefinedCreator() {
+    public DefinedCreatorModel() {
     }
 
     /*public VideoEntity getVideoEntity() {
@@ -34,10 +34,10 @@ public class DefinedCreator {
         this.creatorModel = creatorModel;
     }
 
-    public CreatorRole getCreatorRole() {
-        return creatorRole;
+    public CreatorRoleModel getCreatorRole() {
+        return creatorRoleModel;
     }
-    public void setCreatorRole(CreatorRole creatorRole) {
-        this.creatorRole = creatorRole;
+    public void setCreatorRole(CreatorRoleModel creatorRoleModel) {
+        this.creatorRoleModel = creatorRoleModel;
     }
 }

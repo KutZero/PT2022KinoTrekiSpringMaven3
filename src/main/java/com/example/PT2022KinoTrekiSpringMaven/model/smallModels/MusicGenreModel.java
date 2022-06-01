@@ -1,18 +1,17 @@
 package com.example.PT2022KinoTrekiSpringMaven.model.smallModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.MusicGenreEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
 
-public class ReviewType {
+public class MusicGenreModel {
     private String name;
 
-    static public ReviewType toModel(ReviewTypeEntity reviewType){
-        ReviewType model = new ReviewType();
-        model.setName(reviewType.getName());
+    static public MusicGenreModel toModel(MusicGenreEntity musicGenre){
+        MusicGenreModel model = new MusicGenreModel();
+        model.setName(musicGenre.getName());
         return model;
     }
 
-    public ReviewType() {
+    public MusicGenreModel() {
     }
 
     public String getName() {

@@ -49,7 +49,7 @@ public class MusicController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCreator(@PathVariable Long id){
+    public ResponseEntity deleteOneMusic(@PathVariable Long id){
         try{
             //ошибки
             // такой сущности не существует

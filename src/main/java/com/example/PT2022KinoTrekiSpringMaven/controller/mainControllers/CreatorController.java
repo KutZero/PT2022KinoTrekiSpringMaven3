@@ -43,7 +43,7 @@ public class CreatorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCreator(@PathVariable Long id){
+    public ResponseEntity deleteOneCreator(@PathVariable Long id){
         try{
             //ошибки
             // такой сущности не существует

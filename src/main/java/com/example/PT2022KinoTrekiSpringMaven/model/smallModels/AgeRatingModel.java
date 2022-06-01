@@ -2,16 +2,16 @@ package com.example.PT2022KinoTrekiSpringMaven.model.smallModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 
-public class AgeRating {
+public class AgeRatingModel {
     private String rating;
 
-    static public AgeRating toModel(AgeRatingEntity ageRating){
-        AgeRating model = new AgeRating();
+    static public AgeRatingModel toModel(AgeRatingEntity ageRating){
+        AgeRatingModel model = new AgeRatingModel();
         model.setRating(ageRating.getRating());
         return model;
     }
 
-    public AgeRating() {
+    public AgeRatingModel() {
     }
 
     public String getRating() {

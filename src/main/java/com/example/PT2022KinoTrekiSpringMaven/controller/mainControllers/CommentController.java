@@ -52,7 +52,7 @@ public class CommentController {
     }
 
     @PutMapping
-    public ResponseEntity editVideo(@RequestParam Long id,
+    public ResponseEntity editCommentState(@RequestParam Long id,
                                     @RequestParam boolean state){
         try{
             //ошибки
@@ -66,12 +66,12 @@ public class CommentController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
-            return ResponseEntity.badRequest().body("Ошибка изменения видимость комментария");
+            return ResponseEntity.badRequest().body("Ошибка изменения видимости комментария");
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCreator(@PathVariable Long id){
+    public ResponseEntity deleteComment(@PathVariable Long id){
         try{
             //ошибки
             // такой сущности не существует

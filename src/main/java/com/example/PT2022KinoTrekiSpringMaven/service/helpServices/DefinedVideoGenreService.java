@@ -6,7 +6,7 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEnt
 import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedVideoGenreNorFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.VideoGenreNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenre;
+import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenreModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.helpRepos.DefinedVideoGenreRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.VideoGenreRepo;
@@ -25,7 +25,7 @@ public class DefinedVideoGenreService {
     @Autowired
     private VideoRepo videoRepo;
 
-    public DefinedVideoGenre addDefinedVideoGenre(Long video_id, Long video_genre_id) throws VideoNotFoundException, VideoGenreNotFountExceptioin {
+    public DefinedVideoGenreModel addDefinedVideoGenre(Long video_id, Long video_genre_id) throws VideoNotFoundException, VideoGenreNotFountExceptioin {
         // ошибки
         // нет такого видео
         // нет такого жанра видео
@@ -52,7 +52,7 @@ public class DefinedVideoGenreService {
         }*/
 
         //definedCreator.setRating(ageRating);
-        return DefinedVideoGenre.toModel(definedVideoGenreRepo.save(definedVideoGenreEntity));
+        return DefinedVideoGenreModel.toModel(definedVideoGenreRepo.save(definedVideoGenreEntity));
     }
 
     public void deleteDefinedVideoGenre(Long id) throws  DefinedVideoGenreNorFoundException {
@@ -63,13 +63,13 @@ public class DefinedVideoGenreService {
         definedVideoGenreRepo.deleteById(id);
     }
 
-    public DefinedVideoGenre getDefinedVideoGenre(Long id) throws DefinedVideoGenreNorFoundException {
+    public DefinedVideoGenreModel getDefinedVideoGenre(Long id) throws DefinedVideoGenreNorFoundException {
 
         if(!definedVideoGenreRepo.existsById(id)){
             throw new DefinedVideoGenreNorFoundException("Указанного конкретного жанра видео не существует");
         }
 
-        return DefinedVideoGenre.toModel(definedVideoGenreRepo.findById(id).get());
+        return DefinedVideoGenreModel.toModel(definedVideoGenreRepo.findById(id).get());
     }
 
 

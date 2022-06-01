@@ -2,32 +2,32 @@ package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CreatorRole;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CreatorRoleModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.CreatorRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CreatorRoleService implements SmallService<CreatorRoleEntity, CreatorRole, CreatorRoleNotFountExceptioin>{
+public class CreatorRoleService implements SmallService<CreatorRoleEntity, CreatorRoleModel, CreatorRoleNotFountExceptioin>{
 
     @Autowired
     private CreatorRoleRepo creatorRoleRepo;
 
     @Override
-    public CreatorRole createEntity(CreatorRoleEntity entity) {
+    public CreatorRoleModel createEntity(CreatorRoleEntity entity) {
         // Ошибки
         // Уже существует такая сущность
-        return CreatorRole.toModel(creatorRoleRepo.save(entity));
+        return CreatorRoleModel.toModel(creatorRoleRepo.save(entity));
     }
 
     @Override
-    public CreatorRole getEntity(Long id) throws CreatorRoleNotFountExceptioin {
+    public CreatorRoleModel getEntity(Long id) throws CreatorRoleNotFountExceptioin {
         // Ошибки
         // Такая сущность не существует
         if (!creatorRoleRepo.existsById(id)){
             throw new CreatorRoleNotFountExceptioin("Такой роли создателя не существует");
         }
-        return CreatorRole.toModel(creatorRoleRepo.findById(id).get());
+        return CreatorRoleModel.toModel(creatorRoleRepo.findById(id).get());
     }
 
     @Override

@@ -4,13 +4,11 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.MusicEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.TimeCodeEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.MusicNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.TimeCodeNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleTimeCodeModel;
-import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideoModel;
+import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.TimeCodeModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.MusicRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.TimeCodeRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.UserRepo;
@@ -33,7 +31,7 @@ public class TimeCodeService {
     @Autowired
     private VideoRepo videoRepo;
 
-    public SimpleTimeCodeModel addTimeCode(TimeCodeEntity timeCode, Long music_id, Long user_id, Long video_id) throws MusicNotFoundException, UserNotFoundException, VideoNotFoundException {
+    public TimeCodeModel addTimeCode(TimeCodeEntity timeCode, Long music_id, Long user_id, Long video_id) throws MusicNotFoundException, UserNotFoundException, VideoNotFoundException {
         // ошибки
         // нет такого возрастнного рейтинга
         if (!musicRepo.existsById(music_id)){
@@ -56,7 +54,7 @@ public class TimeCodeService {
         timeCode.setUser(user);
         timeCode.setVideo(video);
 
-        return  SimpleTimeCodeModel.toModel(timeCodeRepo.save(timeCode));
+        return  TimeCodeModel.toModel(timeCodeRepo.save(timeCode));
     }
 
     public void deleteTimeCode(Long id) throws TimeCodeNotFoundException {
@@ -68,7 +66,7 @@ public class TimeCodeService {
         timeCodeRepo.deleteById(id);
     }
 
-    public  SimpleTimeCodeModel getSimpleTimeCodeById(Long id) throws TimeCodeNotFoundException {
+    public TimeCodeModel getSimpleTimeCodeById(Long id) throws TimeCodeNotFoundException {
         // какая то проверка
         //System.out.println(id);
         //VideoEntity video = new VideoEntity(); //videoRepo.findById(id).get();
@@ -76,6 +74,6 @@ public class TimeCodeService {
             throw new TimeCodeNotFoundException("Указанного тайм-кода не существует");
         }
         TimeCodeEntity timeCode = timeCodeRepo.findById(id).get();
-        return SimpleTimeCodeModel.toModel(timeCode);
+        return TimeCodeModel.toModel(timeCode);
     }
 }

@@ -2,32 +2,32 @@ package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.ReviewTypeNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.ReviewType;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.ReviewTypeModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.ReviewTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReviewTypeService implements SmallService<ReviewTypeEntity, ReviewType, ReviewTypeNotFoundException>{
+public class ReviewTypeService implements SmallService<ReviewTypeEntity, ReviewTypeModel, ReviewTypeNotFoundException>{
 
     @Autowired
     private ReviewTypeRepo reviewTypeRepo;
 
     @Override
-    public ReviewType createEntity(ReviewTypeEntity entity) {
+    public ReviewTypeModel createEntity(ReviewTypeEntity entity) {
         // Ошибки
         // Уже существует такая сущность
-        return ReviewType.toModel(reviewTypeRepo.save(entity));
+        return ReviewTypeModel.toModel(reviewTypeRepo.save(entity));
     }
 
     @Override
-    public ReviewType getEntity(Long id) throws ReviewTypeNotFoundException {
+    public ReviewTypeModel getEntity(Long id) throws ReviewTypeNotFoundException {
         // Ошибки
         // Такая сущность не существует
         if (!reviewTypeRepo.existsById(id)){
             throw new ReviewTypeNotFoundException("Такого типа отзыва не существует");
         }
-        return ReviewType.toModel(reviewTypeRepo.findById(id).get());
+        return ReviewTypeModel.toModel(reviewTypeRepo.findById(id).get());
     }
 
     @Override

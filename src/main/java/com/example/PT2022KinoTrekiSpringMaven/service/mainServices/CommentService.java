@@ -56,7 +56,7 @@ public class CommentService {
         commentRepo.deleteById(id);
     }
 
-    public void setCommentVisibleState(Long id, boolean state) throws UserNotFoundException, CommentNotFoundException {
+    public void setCommentVisibleState(Long id, boolean state) throws CommentNotFoundException {
         // ошибки
         // есть ли такое видео
         if (!commentRepo.existsById(id)){

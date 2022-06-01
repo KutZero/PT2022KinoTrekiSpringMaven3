@@ -68,7 +68,7 @@ public class VideoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteOneRating(@PathVariable Long id){
+    public ResponseEntity deleteOneVideo(@PathVariable Long id){
         try{
             //ошибки
             // такого видео не существует

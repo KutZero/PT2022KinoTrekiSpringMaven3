@@ -2,16 +2,16 @@ package com.example.PT2022KinoTrekiSpringMaven.model.smallModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.UserRoleEntity;
 
-public class UserRole {
+public class UserRoleModel {
     private String name;
 
-    static public UserRole toModel(UserRoleEntity userRole){
-        UserRole model = new UserRole();
+    static public UserRoleModel toModel(UserRoleEntity userRole){
+        UserRoleModel model = new UserRoleModel();
         model.setName(userRole.getName());
         return model;
     }
 
-    public UserRole() {
+    public UserRoleModel() {
     }
 
     public String getName() {

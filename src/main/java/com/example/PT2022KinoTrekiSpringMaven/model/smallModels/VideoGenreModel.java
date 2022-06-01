@@ -2,16 +2,16 @@ package com.example.PT2022KinoTrekiSpringMaven.model.smallModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
 
-public class VideoGenre {
+public class VideoGenreModel {
     private String name;
 
-    static public VideoGenre toModel(VideoGenreEntity videoGenre){
-        VideoGenre model = new VideoGenre();
+    static public VideoGenreModel toModel(VideoGenreEntity videoGenre){
+        VideoGenreModel model = new VideoGenreModel();
         model.setName(videoGenre.getName());
         return model;
     }
 
-    public VideoGenre() {
+    public VideoGenreModel() {
     }
 
     public String getName() {

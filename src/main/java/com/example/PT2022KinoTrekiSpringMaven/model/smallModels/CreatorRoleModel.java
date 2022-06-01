@@ -2,16 +2,16 @@ package com.example.PT2022KinoTrekiSpringMaven.model.smallModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
 
-public class CreatorRole {
+public class CreatorRoleModel {
     private String name;
 
-    static public CreatorRole toModel(CreatorRoleEntity creatorRole){
-        CreatorRole model = new CreatorRole();
+    static public CreatorRoleModel toModel(CreatorRoleEntity creatorRole){
+        CreatorRoleModel model = new CreatorRoleModel();
         model.setName(creatorRole.getName());
         return model;
     }
 
-    public CreatorRole() {
+    public CreatorRoleModel() {
     }
 
     public String getName() {

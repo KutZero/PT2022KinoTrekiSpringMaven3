@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteOneRating(@PathVariable Long id){
+    public ResponseEntity deleteOneUser(@PathVariable Long id){
         try{
             //ошибки
             // такого видео не существует

@@ -5,15 +5,15 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.TimeCodeEntity
 import java.sql.Date;
 import java.sql.Time;
 
-public class SimpleTimeCodeModel {
+public class TimeCodeModel {
     private Long like_count;
     private Date add_date;
     private Time trek_start;
     private Time trek_end;
     private SimpleUserModel user;
 
-    static public SimpleTimeCodeModel toModel(TimeCodeEntity timeCodeEntity){
-        SimpleTimeCodeModel model = new SimpleTimeCodeModel();
+    static public TimeCodeModel toModel(TimeCodeEntity timeCodeEntity){
+        TimeCodeModel model = new TimeCodeModel();
         model.setLike_count(timeCodeEntity.getLike_count());
         model.setAdd_date(timeCodeEntity.getAdd_date());
         model.setTrek_start(timeCodeEntity.getTrek_start());
@@ -22,7 +22,7 @@ public class SimpleTimeCodeModel {
         return model;
     }
 
-    public SimpleTimeCodeModel() {
+    public TimeCodeModel() {
     }
 
     public Long getLike_count() {
