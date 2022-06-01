@@ -19,10 +19,15 @@ public class VideoService {
     @Autowired
     private AgeRatingRepo ratingRepo;
 
-    public SimpleVideoModel addVideo(VideoEntity video, Long rating_id){
+    public SimpleVideoModel addVideo(VideoEntity video, Long rating_id) throws AgeRatingNotFoundException {
         // ошибки
         // нет такого возрастнного рейтинга
+        if (!ratingRepo.existsById(rating_id)){
+            throw new AgeRatingNotFoundException("Указанный возрастной рейтинг не существует");
+        }
+
         AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
+
         video.setRating(ageRating);
         return SimpleVideoModel.toModel(videoRepo.save(video));
     }

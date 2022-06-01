@@ -24,6 +24,9 @@ public class VideoController {
             videoService.addVideo(video, rating_id);
             return ResponseEntity.ok("Видео добавлено");
         }
+        catch (AgeRatingNotFoundException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка добавления видео");
         }

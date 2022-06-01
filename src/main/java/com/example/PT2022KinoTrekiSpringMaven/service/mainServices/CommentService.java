@@ -68,7 +68,7 @@ public class CommentService {
 
     public CommentModel getOneSimpleCommentById(Long id) throws CommentNotFoundException {
         // какая то проверка
-        if (!userRepo.existsById(id)){
+        if (!commentRepo.existsById(id)){
             throw new CommentNotFoundException("Указанного комментария не существует");
         }
         CommentEntity comment = commentRepo.findById(id).get();
