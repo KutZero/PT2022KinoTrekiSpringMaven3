@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
-import com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos.AgeRatingRepo;
+import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

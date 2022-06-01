@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos;
+package com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
 import org.springframework.data.repository.CrudRepository;

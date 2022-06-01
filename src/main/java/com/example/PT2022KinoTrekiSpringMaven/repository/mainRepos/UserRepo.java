@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.reposotory.mainRepos;
+package com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
 import org.springframework.data.repository.CrudRepository;

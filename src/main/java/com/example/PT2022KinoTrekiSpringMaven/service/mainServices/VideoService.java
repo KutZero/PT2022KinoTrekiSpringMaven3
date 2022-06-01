@@ -3,9 +3,9 @@ package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFountExceptioin;
-import com.example.PT2022KinoTrekiSpringMaven.model.SimpleVideo;
-import com.example.PT2022KinoTrekiSpringMaven.reposotory.mainRepos.VideoRepo;
-import com.example.PT2022KinoTrekiSpringMaven.reposotory.smallRepos.AgeRatingRepo;
+import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideo;
+import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
+import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
