@@ -1,7 +1,9 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
+import com.example.PT2022KinoTrekiSpringMaven.service.smallServices.AgeRatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class AgeRaitingController {
 
     @Autowired
-    private AgeRatingRepo ageRatingRepo;
+    private AgeRatingService ageRatingService;
 
     @PostMapping
     public ResponseEntity addRating(@RequestBody AgeRatingEntity ageRating){
@@ -19,7 +21,7 @@ public class AgeRaitingController {
             //ошибки
             // рейтинг уже существует
             // id уже занят
-            ageRatingRepo.save(ageRating);
+            ageRatingService.createEntity(ageRating);
             return ResponseEntity.ok("Возрастной рейтинг добавлен");
         }
         catch (Exception e){
@@ -28,27 +30,31 @@ public class AgeRaitingController {
     }
 
     @GetMapping
-    ResponseEntity getOneRating(@RequestParam int rating){
+    ResponseEntity getOneRating(@RequestParam Long id){
         try{
             //ошибки
             // такого рейтинга не существует
-            return ResponseEntity.ok(ageRatingRepo.findByRating(rating));
+            return ResponseEntity.ok(ageRatingService.getEntity(id));
+        }
+        catch (AgeRatingNotFoundException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка получения рейтинга");
         }
     }
 
-    @DeleteMapping("/{rating}")
-    public ResponseEntity deleteOneRating(@PathVariable int rating){
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteOneRating(@PathVariable Long id){
         try{
             //ошибки
             // такого рейтинга не существует
             // с ним связаны многие записи (не стоит удалять)
-            //ageRatingRepo.deleteById(id);
-            AgeRatingEntity ageRating = ageRatingRepo.findByRating(rating); //Костыль
-            ageRatingRepo.delete(ageRating);
+            ageRatingService.deleteEntity(id);
             return ResponseEntity.ok("Рейтинг удален");
+        }
+        catch (AgeRatingNotFoundException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка удаления рейтинга");
