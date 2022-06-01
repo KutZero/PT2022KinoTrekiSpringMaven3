@@ -1,7 +1,9 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
+import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.VideoGenreNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.VideoGenreRepo;
+import com.example.PT2022KinoTrekiSpringMaven.service.smallServices.VideoGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +13,15 @@ import org.springframework.web.bind.annotation.*;
 public class VideoGenreController {
 
     @Autowired
-    private VideoGenreRepo videoGenreRepo;
+    private VideoGenreService videoGenreService;
 
     @PostMapping
-    public ResponseEntity addCreatorRole(@RequestBody VideoGenreEntity videoGenre){
+    public ResponseEntity addVideoGenre(@RequestBody VideoGenreEntity videoGenre){
         try{
             //ошибки
             // такая сущность уже существует
             // id уже занят
-            videoGenreRepo.save(videoGenre);
+            videoGenreService.createEntity(videoGenre);
             return ResponseEntity.ok("Жанр фильма добавлен");
         }
         catch (Exception e){
@@ -28,27 +30,31 @@ public class VideoGenreController {
     }
 
     @GetMapping
-    ResponseEntity getOneCreatorRole(@RequestParam String name){
+    ResponseEntity getOneVideoGenre(@RequestParam Long id){
         try{
             //ошибки
             // такой сущности не существует
-            return ResponseEntity.ok(videoGenreRepo.findByName(name));
-            //return ResponseEntity.ok("Запись получена");
+            return ResponseEntity.ok(videoGenreService.getEntity(id));
+        }
+        catch (VideoGenreNotFountExceptioin e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка получения жанра фильма");
         }
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity deleteCreatorRole(@PathVariable String name){
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteVideoGenre(@PathVariable Long id){
         try{
             //ошибки
             // такой сущности не существует
             // с ним связаны многие записи (не стоит удалять)
-            VideoGenreEntity videoGenre = videoGenreRepo.findByName(name);
-            videoGenreRepo.delete(videoGenre);
+            videoGenreService.deleteEntity(id);
             return ResponseEntity.ok("Жанр фильма удален");
+        }
+        catch (VideoGenreNotFountExceptioin e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка удаления жанра фильма");

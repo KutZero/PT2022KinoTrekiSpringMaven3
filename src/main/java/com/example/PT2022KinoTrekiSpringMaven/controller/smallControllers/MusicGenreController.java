@@ -19,7 +19,7 @@ public class MusicGenreController {
     private MusicGenreService musicGenreService;
 
     @PostMapping
-    public ResponseEntity addCreatorRole(@RequestBody MusicGenreEntity musicGenre){
+    public ResponseEntity addMusicGenre(@RequestBody MusicGenreEntity musicGenre){
         try{
             //ошибки
             // такая сущность уже существует
@@ -33,7 +33,7 @@ public class MusicGenreController {
     }
 
     @GetMapping
-    ResponseEntity getOneCreatorRole(@RequestParam Long id){
+    ResponseEntity getOneMusicGenre(@RequestParam Long id){
         try{
             //ошибки
             // такой сущности не существует
@@ -48,7 +48,7 @@ public class MusicGenreController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCreatorRole(@PathVariable Long id){
+    public ResponseEntity deleteMusicGenre(@PathVariable Long id){
         try{
             //ошибки
             // такой сущности не существует

@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.model.smallModels;
+package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
 

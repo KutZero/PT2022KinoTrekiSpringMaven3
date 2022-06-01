@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ReviewTypeRepo extends CrudRepository<ReviewTypeEntity, Long> {
 
-    ReviewTypeEntity findByName(String name);
+    //ReviewTypeEntity findByName(String name);
 }

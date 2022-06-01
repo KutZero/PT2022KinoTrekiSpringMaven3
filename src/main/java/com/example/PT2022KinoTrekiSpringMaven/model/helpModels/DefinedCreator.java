@@ -1,8 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.model.helpModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.Creator;
+import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.Creator;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CreatorRole;
 
 public class DefinedCreator {

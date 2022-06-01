@@ -16,7 +16,7 @@ public class AgeRaitingController {
     private AgeRatingService ageRatingService;
 
     @PostMapping
-    public ResponseEntity addRating(@RequestBody AgeRatingEntity ageRating){
+    public ResponseEntity addAgeRaiting(@RequestBody AgeRatingEntity ageRating){
         try{
             //ошибки
             // рейтинг уже существует
@@ -30,7 +30,7 @@ public class AgeRaitingController {
     }
 
     @GetMapping
-    ResponseEntity getOneRating(@RequestParam Long id){
+    ResponseEntity getOneAgeRaiting(@RequestParam Long id){
         try{
             //ошибки
             // такого рейтинга не существует
@@ -45,7 +45,7 @@ public class AgeRaitingController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteOneRating(@PathVariable Long id){
+    public ResponseEntity deleteAgeRaiting(@PathVariable Long id){
         try{
             //ошибки
             // такого рейтинга не существует

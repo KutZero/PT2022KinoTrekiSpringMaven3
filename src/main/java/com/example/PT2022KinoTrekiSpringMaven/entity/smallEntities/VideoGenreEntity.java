@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "creator_role")
+@Table(name = "video_genre")
 public class VideoGenreEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

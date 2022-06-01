@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/creatorrole")
 public class CreatorRoleController {
 
-    /*@Autowired
-    private CreatorRoleRepo creatorRoleRepo;*/
-
     @Autowired
     private CreatorRoleService creatorRoleService;
 
@@ -24,7 +21,6 @@ public class CreatorRoleController {
             //ошибки
             // такая сущность уже существует
             // id уже занят
-            //creatorRoleRepo.save(creatorRole);
             creatorRoleService.createEntity(creatorRole);
             return ResponseEntity.ok("Роль создателя добавлена");
         }
@@ -38,8 +34,6 @@ public class CreatorRoleController {
         try{
             //ошибки
             // такой сущности не существует
-            //return ResponseEntity.ok(creatorRoleRepo.findByName(name));
-            //return ResponseEntity.ok("Запись получена");
             return ResponseEntity.ok(creatorRoleService.getEntity(id));
         }
         catch (CreatorRoleNotFountExceptioin e){
@@ -56,8 +50,6 @@ public class CreatorRoleController {
             //ошибки
             // такой сущности не существует
             // с ним связаны многие записи (не стоит удалять)
-            /*CreatorRoleEntity creatorRole = creatorRoleRepo.findByName(name);
-            creatorRoleRepo.delete(creatorRole);*/
             creatorRoleService.deleteEntity(id);
             return ResponseEntity.ok("Роль создателя удалена");
         }
