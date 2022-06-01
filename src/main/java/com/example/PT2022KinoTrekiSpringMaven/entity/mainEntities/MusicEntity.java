@@ -16,6 +16,7 @@ public class MusicEntity {
     private Long id;
     //private Long music_genre_id;
     private String name;
+    private String group_name;
     private Time duration;
 
     @OneToMany(fetch = FetchType.LAZY,

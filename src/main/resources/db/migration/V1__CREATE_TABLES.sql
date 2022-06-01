@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS music(
     id BIGSERIAL NOT NULL PRIMARY KEY,
     music_genre_id BIGINT NOT NULL,
     name character varying(60) NOT NULL,
+    group_name character varying(60) NOT NULL,
     duration time without time zone NOT NULL
 ) TABLESPACE pg_default;
 

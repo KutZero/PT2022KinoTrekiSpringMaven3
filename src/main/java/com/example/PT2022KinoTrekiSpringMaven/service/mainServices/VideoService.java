@@ -75,10 +75,13 @@ public class VideoService {
         return SimpleVideo.toModel(videoRepo.save(videoEntity));
     }
 
-    public SimpleVideo getSimpleVideoById(Long id){
+    public SimpleVideo getSimpleVideoById(Long id) throws VideoNotFountExceptioin {
         // какая то проверка
         //System.out.println(id);
         //VideoEntity video = new VideoEntity(); //videoRepo.findById(id).get();
+        if (!videoRepo.existsById(id)){
+            throw new VideoNotFountExceptioin("Указанного видео не существует");
+        }
         VideoEntity video = videoRepo.findById(id).get();
         return SimpleVideo.toModel(video);
     }

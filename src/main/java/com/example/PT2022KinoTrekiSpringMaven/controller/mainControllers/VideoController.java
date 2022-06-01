@@ -53,12 +53,11 @@ public class VideoController {
     public ResponseEntity getOneSimpleVideo(@RequestParam Long id){
         try{
             //ошибки
-            // такого рейтинга не существует
-            //videoService.addVideo(video);
-            //return ResponseEntity.ok(videoService.getById(id));
-            //return ResponseEntity.ok("ok" + id);
+            // такого видео не существует
             return ResponseEntity.ok(videoService.getSimpleVideoById(id));
-            //return ResponseEntity.ok("Видео получено");
+        }
+        catch (VideoNotFountExceptioin e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка поиска видео");
