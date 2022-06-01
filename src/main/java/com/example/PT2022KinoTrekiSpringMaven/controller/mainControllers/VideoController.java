@@ -52,12 +52,27 @@ public class VideoController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/simple")
     public ResponseEntity getOneSimpleVideo(@RequestParam Long id){
         try{
             //ошибки
             // такого видео не существует
             return ResponseEntity.ok(videoService.getSimpleVideoById(id));
+        }
+        catch (VideoNotFoundException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка поиска видео");
+        }
+    }
+
+    @GetMapping("/extended")
+    public ResponseEntity getOneExtendedVideo(@RequestParam Long id){
+        try{
+            //ошибки
+            // такого видео не существует
+            return ResponseEntity.ok(videoService.getExtendedVideoById(id));
         }
         catch (VideoNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());

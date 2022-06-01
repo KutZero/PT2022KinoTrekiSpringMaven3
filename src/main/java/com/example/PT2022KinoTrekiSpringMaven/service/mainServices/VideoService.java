@@ -4,6 +4,7 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.ExtendedVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
@@ -82,12 +83,19 @@ public class VideoService {
 
     public SimpleVideoModel getSimpleVideoById(Long id) throws VideoNotFoundException {
         // какая то проверка
-        //System.out.println(id);
-        //VideoEntity video = new VideoEntity(); //videoRepo.findById(id).get();
         if (!videoRepo.existsById(id)){
             throw new VideoNotFoundException("Указанного видео не существует");
         }
         VideoEntity video = videoRepo.findById(id).get();
         return SimpleVideoModel.toModel(video);
+    }
+
+    public ExtendedVideoModel getExtendedVideoById(Long id) throws VideoNotFoundException {
+        // какая то проверка
+        if (!videoRepo.existsById(id)){
+            throw new VideoNotFoundException("Указанного видео не существует");
+        }
+        VideoEntity video = videoRepo.findById(id).get();
+        return ExtendedVideoModel.toModel(video);
     }
 }
