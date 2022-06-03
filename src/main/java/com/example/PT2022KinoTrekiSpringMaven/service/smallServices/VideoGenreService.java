@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.VideoGenreNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.VideoGenreNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.VideoGenreModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.VideoGenreRepo;
 import org.springframework.beans.factory.annotation.Autowired;

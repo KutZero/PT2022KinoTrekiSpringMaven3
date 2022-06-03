@@ -1,13 +1,10 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.*;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CommentComplaintNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CommentNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.ReviewComplaintNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.ReviewTypeNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CommentComplaintNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CommentNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.UserNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.CommentComplaintModel;
-import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.ReviewComplaintModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CommentComplaintRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CommentRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.UserRepo;

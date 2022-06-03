@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.MusicGenreEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.MusicGenreNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.MusicGenreNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.MusicGenreModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.MusicGenreRepo;
 import org.springframework.beans.factory.annotation.Autowired;

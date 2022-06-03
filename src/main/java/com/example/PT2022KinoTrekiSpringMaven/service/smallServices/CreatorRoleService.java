@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CreatorRoleNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CreatorRoleModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.CreatorRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,12 +1,10 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.TimeCodeEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.MusicNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.TimeCodeNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.MusicNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.TimeCodeNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.UserNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.TimeCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

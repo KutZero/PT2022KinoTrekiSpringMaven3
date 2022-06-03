@@ -4,10 +4,10 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreator
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exception.helpExceptions.DefinedCreatorNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CreatorNotFountException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CreatorRoleNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreatorModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.helpRepos.DefinedCreatorRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CreatorRepo;

@@ -1,8 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.smallServices.AgeRatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions;
+package com.example.PT2022KinoTrekiSpringMaven.exception.helpExceptions;
 
 public class DefinedVideoGenreNorFoundException extends Exception{
     public DefinedVideoGenreNorFoundException(String message) {

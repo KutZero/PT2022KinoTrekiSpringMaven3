@@ -1,9 +1,9 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.helpControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedCreatorNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.CreatorRoleNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exception.helpExceptions.DefinedCreatorNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CreatorNotFountException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CreatorRoleNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.service.helpServices.DefinedCreatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

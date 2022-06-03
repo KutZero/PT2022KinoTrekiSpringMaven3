@@ -2,18 +2,14 @@ package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.AgeRatingNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.ExtendedVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class VideoService {
@@ -34,6 +30,7 @@ public class VideoService {
         AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
 
         video.setRating(ageRating);
+
         return SimpleVideoModel.toModel(videoRepo.save(video));
     }
 

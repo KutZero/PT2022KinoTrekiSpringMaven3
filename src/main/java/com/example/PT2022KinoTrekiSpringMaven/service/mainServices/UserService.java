@@ -2,8 +2,8 @@ package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.UserRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.UserRoleNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.UserNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.UserRoleNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleUserModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.UserRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.UserRoleRepo;

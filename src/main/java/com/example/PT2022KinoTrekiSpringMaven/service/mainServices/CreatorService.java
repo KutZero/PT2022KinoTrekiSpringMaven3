@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CreatorNotFountException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CreatorNotFountException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.CreatorModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CreatorRepo;
 import org.springframework.beans.factory.annotation.Autowired;

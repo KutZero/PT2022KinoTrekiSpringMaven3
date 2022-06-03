@@ -33,11 +33,31 @@ public class ExtendedVideoModel {
         model.setDescription(video.getDescription());
         model.setPoster_path(video.getPoster_path());
         model.setTrailer_link(video.getTrailer_link());
-        model.setDef_creators(video.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
-        model.setDef_genres(video.getDef_genres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
-        model.setComments(video.getComments().stream().map(CommentModel::toModel).collect(Collectors.toList()));
-        model.setTime_codes(video.getTime_codes().stream().map(TimeCodeModel::toModel).collect(Collectors.toList()));
-        model.setReviews(video.getReviews().stream().map(ReviewModel::toModel).collect(Collectors.toList()));
+
+        try {
+            model.setDef_creators(video.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
+
+        try {
+            model.setDef_genres(video.getDef_genres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
+
+        try {
+            model.setComments(video.getComments().stream().map(CommentModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
+
+        try {
+            model.setTime_codes(video.getTime_codes().stream().map(TimeCodeModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
+
+        try {
+            model.setReviews(video.getReviews().stream().map(ReviewModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
 
         return model;
     }

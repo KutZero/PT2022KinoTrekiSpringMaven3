@@ -1,16 +1,9 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CommentEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.MusicEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.MusicGenreEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CommentNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.MusicNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.MusicGenreNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.CommentModel;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.MusicNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.MusicGenreNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleMusicModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.MusicRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.MusicGenreRepo;

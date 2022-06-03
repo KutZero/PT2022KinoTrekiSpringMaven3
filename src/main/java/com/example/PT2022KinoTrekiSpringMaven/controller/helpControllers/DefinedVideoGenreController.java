@@ -1,8 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.helpControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.exeption.helpExceptions.DefinedVideoGenreNorFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.VideoGenreNotFountExceptioin;
+import com.example.PT2022KinoTrekiSpringMaven.exception.helpExceptions.DefinedVideoGenreNorFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.VideoGenreNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.service.helpServices.DefinedVideoGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

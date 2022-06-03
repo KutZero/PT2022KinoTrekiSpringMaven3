@@ -1,8 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.UserRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.UserRoleNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.UserRoleRepo;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.UserRoleNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.smallServices.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

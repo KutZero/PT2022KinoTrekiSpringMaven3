@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.ReviewTypeNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.ReviewTypeNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.ReviewTypeModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.ReviewTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;

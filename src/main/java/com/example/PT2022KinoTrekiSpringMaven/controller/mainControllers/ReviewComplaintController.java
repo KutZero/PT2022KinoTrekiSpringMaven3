@@ -1,12 +1,9 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CommentEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.ReviewComplaintEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.CommentNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.ReviewComplaintNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.UserNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.mainExceptions.VideoNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exeption.smallExceptions.ReviewTypeNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.ReviewComplaintNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.UserNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.ReviewTypeNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.ReviewComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

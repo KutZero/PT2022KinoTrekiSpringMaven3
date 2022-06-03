@@ -1,6 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 
+import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreatorModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenreModel;
@@ -22,8 +24,18 @@ public class SimpleVideoModel {
         model.setRelease_year(video.getRelease_year());
         model.setDescription(video.getDescription());
         model.setPoster_path(video.getPoster_path());
-        model.setDef_creators(video.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
-        model.setDef_genres(video.getDef_genres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
+
+        // При добавлении нового видео в базу даже сделать запрос на пустоту этих полей у сущности видео сделать нельзя, так что как то так
+        try {
+            model.setDef_creators(video.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
+
+        try {
+            model.setDef_genres(video.getDef_genres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
+        }
+        catch (Exception ignored){}
+
         return model;
     }
 
