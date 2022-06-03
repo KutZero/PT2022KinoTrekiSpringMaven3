@@ -35,6 +35,12 @@ CREATE TABLE IF NOT EXISTS age_rating(
     rating character varying(10) NOT NULL UNIQUE
 ) TABLESPACE pg_default;
 
+/*Таблица Страна*/
+CREATE TABLE IF NOT EXISTS country(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name character varying(100) NOT NULL UNIQUE
+) TABLESPACE pg_default;
+
 /*Таблица Создатель*/
 CREATE TABLE IF NOT EXISTS creator(
     id BIGSERIAL NOT NULL PRIMARY KEY,
@@ -137,10 +143,11 @@ CREATE TABLE IF NOT EXISTS comment_complaint(
 CREATE TABLE IF NOT EXISTS video(
     id BIGSERIAL NOT NULL PRIMARY KEY,
     age_rating_id BIGINT NOT NULL,
+    country_id BIGINT NOT NULL,
     duration time without time zone NOT NULL,
     name character varying(60) NOT NULL,
     release_year int,
-    tagline character varying(60),
+    tagline character varying(255),
     description text NOT NULL,
     poster_path text NOT NULL,
     trailer_link text,

@@ -3,6 +3,7 @@ package com.example.PT2022KinoTrekiSpringMaven.controller.mainControllers;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.AgeRatingNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CountryNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -18,14 +19,15 @@ public class VideoController {
 
     @PostMapping
     public ResponseEntity addVideo(@RequestBody VideoEntity video,
-                                   @RequestParam Long rating_id){
+                                   @RequestParam Long rating_id,
+                                   @RequestParam Long country_id){
         try{
             //ошибки
             // age_rating не существует
-            videoService.addVideo(video, rating_id);
+            videoService.addVideo(video, rating_id, country_id);
             return ResponseEntity.ok("Видео добавлено");
         }
-        catch (AgeRatingNotFoundException e){
+        catch (AgeRatingNotFoundException | CountryNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
@@ -36,6 +38,7 @@ public class VideoController {
     @PutMapping
     public ResponseEntity editVideo(@RequestBody VideoEntity video,
                                     @RequestParam Long rating_id,
+                                    @RequestParam Long country_id,
                                     @RequestParam Long video_id){
         try{
             //ошибки
@@ -44,7 +47,7 @@ public class VideoController {
             // видео не существует
             /*videoService.editVideo(video, rating_id, video_id);
             return ResponseEntity.ok("Видео изменено");*/
-            return ResponseEntity.ok(videoService.editVideo(video, rating_id, video_id));
+            return ResponseEntity.ok(videoService.editVideo(video, rating_id, country_id, video_id));
         }
         catch (VideoNotFoundException | AgeRatingNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());

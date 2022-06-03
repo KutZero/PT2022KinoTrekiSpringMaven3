@@ -3,6 +3,7 @@ package com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities;
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CountryEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -43,6 +44,10 @@ public class VideoEntity {
     @ManyToOne
     @JoinColumn(name = "age_rating_id")
     private AgeRatingEntity rating;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private CountryEntity country;
 
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "video",

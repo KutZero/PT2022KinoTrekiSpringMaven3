@@ -7,6 +7,9 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.ReviewTypeRe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ReviewTypeService implements SmallService<ReviewTypeEntity, ReviewTypeModel, ReviewTypeNotFoundException>{
 
@@ -38,5 +41,10 @@ public class ReviewTypeService implements SmallService<ReviewTypeEntity, ReviewT
             throw new ReviewTypeNotFoundException("Такого типа отзыва не существует");
         }
         reviewTypeRepo.deleteById(id);
+    }
+
+    @Override
+    public List<ReviewTypeModel> getAllEntities() {
+        return reviewTypeRepo.findAll().stream().map(ReviewTypeModel::toModel).collect(Collectors.toList());
     }
 }

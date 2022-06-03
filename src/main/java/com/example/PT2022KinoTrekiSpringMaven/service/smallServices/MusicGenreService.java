@@ -7,6 +7,9 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.MusicGenreRe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class MusicGenreService implements SmallService<MusicGenreEntity, MusicGenreModel, MusicGenreNotFoundException>{
 
@@ -38,5 +41,10 @@ public class MusicGenreService implements SmallService<MusicGenreEntity, MusicGe
             throw new MusicGenreNotFoundException("Такого музыкального жанра не существует");
         }
         musicGenreRepo.deleteById(id);
+    }
+
+    @Override
+    public List<MusicGenreModel> getAllEntities() {
+        return musicGenreRepo.findAll().stream().map(MusicGenreModel::toModel).collect(Collectors.toList());
     }
 }

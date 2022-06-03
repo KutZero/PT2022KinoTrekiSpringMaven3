@@ -7,6 +7,9 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.UserRoleRepo
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserRoleService implements SmallService<UserRoleEntity, UserRoleModel, UserRoleNotFoundException>{
 
@@ -38,5 +41,10 @@ public class UserRoleService implements SmallService<UserRoleEntity, UserRoleMod
             throw new UserRoleNotFoundException("Такой роли пользователя не существует");
         }
         userRoleRepo.deleteById(id);
+    }
+
+    @Override
+    public List<UserRoleModel> getAllEntities() {
+        return userRoleRepo.findAll().stream().map(UserRoleModel::toModel).collect(Collectors.toList());
     }
 }

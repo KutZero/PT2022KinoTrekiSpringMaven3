@@ -34,6 +34,11 @@ ALTER TABLE video
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
+ALTER TABLE video
+    ADD CONSTRAINT country_id_fk FOREIGN KEY (country_id) REFERENCES country (id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE;
+
 ALTER TABLE review_complaint
     ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES user_table (id)
         ON DELETE CASCADE

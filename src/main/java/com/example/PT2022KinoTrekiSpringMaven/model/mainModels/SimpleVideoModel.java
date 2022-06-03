@@ -6,6 +6,8 @@ import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGe
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreatorModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenreModel;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.AgeRatingModel;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CountryModel;
 import lombok.Data;
 
 import java.util.List;
@@ -18,6 +20,8 @@ public class SimpleVideoModel {
     private int release_year;
     private String description;
     private String poster_path;
+    private CountryModel country;
+    private AgeRatingModel ageRating;
     private List<DefinedCreatorModel> def_creators;
     private List<DefinedVideoGenreModel> def_genres;
 
@@ -28,6 +32,8 @@ public class SimpleVideoModel {
         model.setRelease_year(entity.getRelease_year());
         model.setDescription(entity.getDescription());
         model.setPoster_path(entity.getPoster_path());
+        model.setAgeRating(AgeRatingModel.toModel(entity.getRating()));
+        model.setCountry(CountryModel.toModel(entity.getCountry()));
 
         // При добавлении нового видео в базу даже сделать запрос на пустоту этих полей у сущности видео сделать нельзя, так что как то так
         try {

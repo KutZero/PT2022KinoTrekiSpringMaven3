@@ -2,12 +2,15 @@ package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CountryEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.AgeRatingNotFoundException;
+import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CountryNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.ExtendedVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
+import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.CountryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,16 +28,26 @@ public class VideoService {
     @Autowired
     private AgeRatingRepo ratingRepo;
 
-    public SimpleVideoModel addVideo(VideoEntity video, Long rating_id) throws AgeRatingNotFoundException {
+    @Autowired
+    private CountryRepo countryRepo;
+
+    public SimpleVideoModel addVideo(VideoEntity video, Long rating_id, Long country_id) throws AgeRatingNotFoundException, CountryNotFoundException {
         // ошибки
         // нет такого возрастнного рейтинга
         if (!ratingRepo.existsById(rating_id)){
             throw new AgeRatingNotFoundException("Указанный возрастной рейтинг не существует");
         }
 
+        if (!countryRepo.existsById(country_id)){
+            throw new CountryNotFoundException("Указанная страна не существует");
+        }
+
+
         AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
+        CountryEntity country = countryRepo.findById(country_id).get();
 
         video.setRating(ageRating);
+        video.setCountry(country);
 
         return SimpleVideoModel.toModel(videoRepo.save(video));
     }
@@ -48,7 +61,7 @@ public class VideoService {
         videoRepo.deleteById(id);
     }
 
-    public SimpleVideoModel editVideo(VideoEntity video, Long rating_id, Long video_id) throws VideoNotFoundException, AgeRatingNotFoundException {
+    public SimpleVideoModel editVideo(VideoEntity video, Long rating_id, Long country_id, Long video_id) throws VideoNotFoundException, AgeRatingNotFoundException, CountryNotFoundException {
         // ошибки
         // есть ли такое видео
         // нет такого возрастнного рейтинга
@@ -63,11 +76,20 @@ public class VideoService {
             throw new AgeRatingNotFoundException("Указанного возрастного рейтинга не существует");
         }
 
+        if (!countryRepo.existsById(country_id)){
+            throw new CountryNotFoundException("Указанная страна не существует");
+        }
+
         VideoEntity videoEntity = videoRepo.findById(video_id).get();
 
         if (!rating_id.equals(videoEntity.getRating().getId())) {
             AgeRatingEntity ageRating = ratingRepo.findById(rating_id).get();
             videoEntity.setRating(ageRating);
+        }
+
+        if (!country_id.equals(videoEntity.getCountry().getId())) {
+            CountryEntity country = countryRepo.findById(country_id).get();
+            videoEntity.setCountry(country);
         }
 
         videoEntity.setComments(video.getComments());

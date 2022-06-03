@@ -7,6 +7,9 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRep
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AgeRatingService implements SmallService<AgeRatingEntity, AgeRatingModel, AgeRatingNotFoundException> {
 
@@ -14,10 +17,10 @@ public class AgeRatingService implements SmallService<AgeRatingEntity, AgeRating
     private AgeRatingRepo ageRatingRepo;
 
     @Override
-    public AgeRatingModel createEntity(AgeRatingEntity ageRating) {
+    public AgeRatingModel createEntity(AgeRatingEntity entity) {
         // Ошибки
         // Уже существует такая сущность
-        return AgeRatingModel.toModel(ageRatingRepo.save(ageRating));
+        return AgeRatingModel.toModel(ageRatingRepo.save(entity));
     }
 
     @Override
@@ -38,6 +41,11 @@ public class AgeRatingService implements SmallService<AgeRatingEntity, AgeRating
             throw new AgeRatingNotFoundException("Такого рейтинга не существует");
         }
         ageRatingRepo.deleteById(id);
+    }
+
+    @Override
+    public List<AgeRatingModel> getAllEntities() {
+        return ageRatingRepo.findAll().stream().map(AgeRatingModel::toModel).collect(Collectors.toList());
     }
 
 

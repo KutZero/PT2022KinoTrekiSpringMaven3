@@ -1,7 +1,10 @@
 package com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.AgeRatingEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CountryEntity;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
 
 public interface AgeRatingRepo extends CrudRepository<AgeRatingEntity, Long> {
 
@@ -11,4 +14,6 @@ public interface AgeRatingRepo extends CrudRepository<AgeRatingEntity, Long> {
     //AgeRatingEntity findByRating(int rating);
 
     //Long deleteByRating(int rating); // Не работает
+
+    List<AgeRatingEntity> findAll();
 }

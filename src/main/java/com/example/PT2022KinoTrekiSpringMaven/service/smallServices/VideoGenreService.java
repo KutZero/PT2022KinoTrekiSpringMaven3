@@ -1,11 +1,16 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.VideoGenreNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.VideoGenreModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.VideoGenreRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VideoGenreService implements SmallService<VideoGenreEntity, VideoGenreModel, VideoGenreNotFountExceptioin>{
@@ -38,5 +43,10 @@ public class VideoGenreService implements SmallService<VideoGenreEntity, VideoGe
             throw new VideoGenreNotFountExceptioin("Такого жанра видео не существует");
         }
         videoGenreRepo.deleteById(id);
+    }
+
+    @Override
+    public List<VideoGenreModel> getAllEntities() {
+        return videoGenreRepo.findAll().stream().map(VideoGenreModel::toModel).collect(Collectors.toList());
     }
 }

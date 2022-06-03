@@ -7,6 +7,9 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.CreatorRoleR
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CreatorRoleService implements SmallService<CreatorRoleEntity, CreatorRoleModel, CreatorRoleNotFountExceptioin>{
 
@@ -38,5 +41,10 @@ public class CreatorRoleService implements SmallService<CreatorRoleEntity, Creat
             throw new CreatorRoleNotFountExceptioin("Такой роли создателя не существует");
         }
         creatorRoleRepo.deleteById(id);
+    }
+
+    @Override
+    public List<CreatorRoleModel> getAllEntities() {
+        return creatorRoleRepo.findAll().stream().map(CreatorRoleModel::toModel).collect(Collectors.toList());
     }
 }

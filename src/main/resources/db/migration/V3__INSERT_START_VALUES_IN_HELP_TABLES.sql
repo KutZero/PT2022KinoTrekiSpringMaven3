@@ -48,3 +48,8 @@ INSERT INTO age_rating VALUES (3, '12+');
 INSERT INTO age_rating VALUES (4, '16+');
 INSERT INTO age_rating VALUES (5, '18+');
 
+INSERT INTO country VALUES (1, 'Россия');
+INSERT INTO country VALUES (2, 'США');
+INSERT INTO country VALUES (3, 'Бразилия');
+INSERT INTO country VALUES (4, 'Великобритания');
+INSERT INTO country VALUES (5, 'Швеция');

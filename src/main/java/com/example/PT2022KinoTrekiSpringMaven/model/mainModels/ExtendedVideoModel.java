@@ -3,6 +3,8 @@ package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreatorModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenreModel;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.AgeRatingModel;
+import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CountryModel;
 import lombok.Data;
 
 import java.sql.Date;
@@ -21,6 +23,8 @@ public class ExtendedVideoModel {
     private String poster_path;
     private String trailer_link;
     private Date add_date;
+    private CountryModel country;
+    private AgeRatingModel ageRating;
     private List<DefinedCreatorModel> def_creators;
     private List<DefinedVideoGenreModel> def_genres;
     private List<CommentModel> comments;
@@ -37,6 +41,8 @@ public class ExtendedVideoModel {
         model.setDescription(entity.getDescription());
         model.setPoster_path(entity.getPoster_path());
         model.setTrailer_link(entity.getTrailer_link());
+        model.setAgeRating(AgeRatingModel.toModel(entity.getRating()));
+        model.setCountry(CountryModel.toModel(entity.getCountry()));
 
         try {
             model.setDef_creators(entity.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
