@@ -43,6 +43,18 @@ public class UserRoleController {
         }
     }
 
+    @GetMapping("/all")
+    ResponseEntity getAllVideoGenres(){
+        try{
+            //ошибки
+            // такой сущности не существует
+            return ResponseEntity.ok(userRoleService.getAllEntities());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка получения списка ролей юзеров");
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteUserRole(@PathVariable Long id){
         try{

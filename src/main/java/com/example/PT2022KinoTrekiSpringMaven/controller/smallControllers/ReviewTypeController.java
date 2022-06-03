@@ -43,6 +43,18 @@ public class ReviewTypeController {
         }
     }
 
+    @GetMapping("/all")
+    ResponseEntity getAllVideoGenres(){
+        try{
+            //ошибки
+            // такой сущности не существует
+            return ResponseEntity.ok(reviewTypeService.getAllEntities());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка получения списка типов отзывов");
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteReviewType(@PathVariable Long id){
         try{

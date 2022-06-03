@@ -45,6 +45,18 @@ public class CountryController {
         }
     }
 
+    @GetMapping("/all")
+    ResponseEntity getAllVideoGenres(){
+        try{
+            //ошибки
+            // такой сущности не существует
+            return ResponseEntity.ok(countryService.getAllEntities());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка получения списка стран");
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteReviewType(@PathVariable Long id){
         try{

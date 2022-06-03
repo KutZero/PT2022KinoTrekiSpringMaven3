@@ -46,6 +46,18 @@ public class MusicGenreController {
         }
     }
 
+    @GetMapping("/all")
+    ResponseEntity getAllVideoGenres(){
+        try{
+            //ошибки
+            // такой сущности не существует
+            return ResponseEntity.ok(musicGenreService.getAllEntities());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка получения списка жанров музыки");
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteMusicGenre(@PathVariable Long id){
         try{

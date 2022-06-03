@@ -43,6 +43,18 @@ public class CreatorRoleController {
         }
     }
 
+    @GetMapping("/all")
+    ResponseEntity getAllVideoGenres(){
+        try{
+            //ошибки
+            // такой сущности не существует
+            return ResponseEntity.ok(creatorRoleService.getAllEntities());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка получения списка ролей создателей");
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteCreatorRole(@PathVariable Long id){
         try{

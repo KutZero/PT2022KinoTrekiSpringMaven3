@@ -39,7 +39,19 @@ public class AgeRaitingController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
-            return ResponseEntity.badRequest().body("Ошибка получения рейтинга");
+            return ResponseEntity.badRequest().body("Ошибка получения возрастного рейтинга");
+        }
+    }
+
+    @GetMapping("/all")
+    ResponseEntity getAllVideoGenres(){
+        try{
+            //ошибки
+            // такой сущности не существует
+            return ResponseEntity.ok(ageRatingService.getAllEntities());
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка получения списка возрастных рейтингов");
         }
     }
 
@@ -56,7 +68,7 @@ public class AgeRaitingController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e){
-            return ResponseEntity.badRequest().body("Ошибка удаления рейтинга");
+            return ResponseEntity.badRequest().body("Ошибка удаления возрастного рейтинга");
         }
     }
 }
