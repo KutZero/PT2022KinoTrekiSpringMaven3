@@ -1,41 +1,22 @@
 package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
+import lombok.Data;
 
+@Data
 public class CreatorModel {
+    private Long id;
     private String name;
     private String last_name;
     private String add_names;
 
-    public static CreatorModel toModel(CreatorEntity creator){
+    public static CreatorModel toModel(CreatorEntity entity){
         CreatorModel model = new CreatorModel();
-        model.setName(creator.getName());
-        model.setAdd_names(creator.getAdd_names());
-        model.setLast_name(creator.getLast_name());
+        model.setId(entity.getId());
+        model.setName(entity.getName());
+        model.setAdd_names(entity.getAdd_names());
+        model.setLast_name(entity.getLast_name());
         return model;
     }
 
-    public CreatorModel() {
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getAdd_names() {
-        return add_names;
-    }
-    public void setAdd_names(String add_names) {
-        this.add_names = add_names;
-    }
 }

@@ -2,44 +2,25 @@ package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CommentComplaintEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import java.sql.Date;
 
+@Data
 public class CommentComplaintModel {
+    private Long id;
     private String content;
     private Date add_date;
     private SimpleUserModel user;
 
-    static public CommentComplaintModel toModel(CommentComplaintEntity commentComplaint){
+    static public CommentComplaintModel toModel(CommentComplaintEntity entity){
         CommentComplaintModel model = new CommentComplaintModel();
-        model.setContent(commentComplaint.getContent());
-        model.setAdd_date(commentComplaint.getAdd_date());
-        model.setUser(SimpleUserModel.toModel(commentComplaint.getUser()));
+        model.setId(entity.getId());
+        model.setContent(entity.getContent());
+        model.setAdd_date(entity.getAdd_date());
+        model.setUser(SimpleUserModel.toModel(entity.getUser()));
 
         return model;
     }
 
-    public CommentComplaintModel() {
-    }
-
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Date getAdd_date() {
-        return add_date;
-    }
-    public void setAdd_date(Date add_date) {
-        this.add_date = add_date;
-    }
-
-    public SimpleUserModel getUser() {
-        return user;
-    }
-    public void setUser(SimpleUserModel user) {
-        this.user = user;
-    }
 }

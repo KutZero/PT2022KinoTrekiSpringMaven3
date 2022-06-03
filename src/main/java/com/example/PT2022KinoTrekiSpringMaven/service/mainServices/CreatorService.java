@@ -14,7 +14,7 @@ public class CreatorService {
     private CreatorRepo creatorRepo;
 
     public CreatorModel addCreator(CreatorEntity creator){
-        return   CreatorModel.toModel(creatorRepo.save(creator));
+        return CreatorModel.toModel(creatorRepo.save(creator));
     }
 
     public void deleteCreator(Long id) throws CreatorNotFountException {
@@ -28,7 +28,7 @@ public class CreatorService {
         if (!creatorRepo.existsById(id)){
             throw new CreatorNotFountException("Создатель не найлен");
         }
-        return  CreatorModel.toModel(creatorRepo.findById(id).get());
+        return CreatorModel.toModel(creatorRepo.findById(id).get());
     }
 
 }
