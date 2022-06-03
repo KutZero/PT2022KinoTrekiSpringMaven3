@@ -5,6 +5,7 @@ import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.VideoNotF
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.mainServices.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,6 +66,19 @@ public class VideoController {
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка поиска видео");
+        }
+    }
+
+    @GetMapping("/simple/page")
+    public ResponseEntity getPageOfSimpleVideo(@RequestParam int pageNum,
+                                               @RequestParam int pageSize){
+        try{
+            //ошибки
+            // такого видео не существует
+            return ResponseEntity.ok(videoService.getPageOfSimpleVideoByParams(PageRequest.of(pageNum,pageSize)));
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка поиска страницы с видео");
         }
     }
 

@@ -9,7 +9,12 @@ import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.SimpleVideoModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VideoService {
@@ -89,6 +94,15 @@ public class VideoService {
         }
         VideoEntity video = videoRepo.findById(id).get();
         return SimpleVideoModel.toModel(video);
+    }
+
+    public List<SimpleVideoModel> getPageOfSimpleVideoByParams(Pageable page){
+        // какая то проверка
+        //List<VideoEntity> videos = videoRepo.findByNameIgnoreCase(name, page);
+
+        List<VideoEntity> videos = videoRepo.findAll(page);
+
+        return videos.stream().map(SimpleVideoModel::toModel).collect(Collectors.toList());
     }
 
     public ExtendedVideoModel getExtendedVideoById(Long id) throws VideoNotFoundException {
