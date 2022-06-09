@@ -1,6 +1,5 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.*;
 import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CommentComplaintNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.CommentNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.UserNotFoundException;
@@ -8,6 +7,9 @@ import com.example.PT2022KinoTrekiSpringMaven.model.mainModels.CommentComplaintM
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CommentComplaintRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.CommentRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.UserRepo;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CommentComplaintEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CommentEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

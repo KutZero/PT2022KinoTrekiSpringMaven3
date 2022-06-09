@@ -1,6 +1,8 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.mainServices;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.*;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.ReviewEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.UserEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exception.mainExceptions.*;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.ReviewTypeNotFoundException;

@@ -1,8 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedCreatorEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities.DefinedVideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedCreatorModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.helpModels.DefinedVideoGenreModel;

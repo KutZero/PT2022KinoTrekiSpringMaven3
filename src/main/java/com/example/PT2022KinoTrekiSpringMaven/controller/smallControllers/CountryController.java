@@ -1,9 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.controller.smallControllers;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CountryEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.ReviewTypeEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CountryNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.ReviewTypeNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.service.smallServices.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -2,7 +2,6 @@ package com.example.PT2022KinoTrekiSpringMaven.model.mainModels;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.ReviewEntity;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.ReviewTypeModel;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.sql.Date;

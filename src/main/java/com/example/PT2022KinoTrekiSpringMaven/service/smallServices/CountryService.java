@@ -1,9 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CountryEntity;
-import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.AgeRatingNotFoundException;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.CountryNotFoundException;
-import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.AgeRatingModel;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.CountryModel;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.CountryRepo;
 import org.springframework.beans.factory.annotation.Autowired;

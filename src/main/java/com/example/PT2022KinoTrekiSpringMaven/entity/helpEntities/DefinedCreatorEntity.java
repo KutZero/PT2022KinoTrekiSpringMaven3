@@ -1,7 +1,7 @@
 package com.example.PT2022KinoTrekiSpringMaven.entity.helpEntities;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
+import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.CreatorEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
 import lombok.Data;
 

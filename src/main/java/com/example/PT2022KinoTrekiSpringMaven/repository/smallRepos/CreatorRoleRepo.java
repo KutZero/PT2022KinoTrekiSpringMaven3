@@ -1,7 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.CreatorRoleEntity;
-import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.MusicGenreEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

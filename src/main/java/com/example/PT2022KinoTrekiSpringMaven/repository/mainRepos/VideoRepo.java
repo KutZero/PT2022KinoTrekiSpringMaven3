@@ -1,7 +1,6 @@
 package com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos;
 
 import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 

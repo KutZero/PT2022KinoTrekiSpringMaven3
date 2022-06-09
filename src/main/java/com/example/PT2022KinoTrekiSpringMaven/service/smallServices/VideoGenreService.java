@@ -1,6 +1,5 @@
 package com.example.PT2022KinoTrekiSpringMaven.service.smallServices;
 
-import com.example.PT2022KinoTrekiSpringMaven.entity.mainEntities.VideoEntity;
 import com.example.PT2022KinoTrekiSpringMaven.entity.smallEntities.VideoGenreEntity;
 import com.example.PT2022KinoTrekiSpringMaven.exception.smallExceptions.VideoGenreNotFountExceptioin;
 import com.example.PT2022KinoTrekiSpringMaven.model.smallModels.VideoGenreModel;
@@ -8,7 +7,6 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.VideoGenreRe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
