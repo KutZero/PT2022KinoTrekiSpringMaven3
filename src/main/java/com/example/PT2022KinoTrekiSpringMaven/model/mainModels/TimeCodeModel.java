@@ -18,10 +18,10 @@ public class TimeCodeModel {
     static public TimeCodeModel toModel(TimeCodeEntity entity){
         TimeCodeModel model = new TimeCodeModel();
         model.setId(entity.getId());
-        model.setLike_count(entity.getLike_count());
-        model.setAdd_date(entity.getAdd_date());
-        model.setTrek_start(entity.getTrek_start());
-        model.setTrek_end(entity.getTrek_end());
+        model.setLike_count(entity.getLikeCount());
+        model.setAdd_date(entity.getAddDate());
+        model.setTrek_start(entity.getTrekStart());
+        model.setTrek_end(entity.getTrekEnd());
         model.setUser(SimpleUserModel.toModel(entity.getUser()));
         return model;
     }

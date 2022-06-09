@@ -36,21 +36,21 @@ public class ExtendedVideoModel {
         model.setId(entity.getId());
         model.setDuration(entity.getDuration());
         model.setName(entity.getName());
-        model.setRelease_year(entity.getRelease_year());
+        model.setRelease_year(entity.getReleaseYear());
         model.setTagline(entity.getTagline());
         model.setDescription(entity.getDescription());
-        model.setPoster_path(entity.getPoster_path());
-        model.setTrailer_link(entity.getTrailer_link());
+        model.setPoster_path(entity.getPosterPath());
+        model.setTrailer_link(entity.getTrailerLink());
         model.setAgeRating(AgeRatingModel.toModel(entity.getRating()));
         model.setCountry(CountryModel.toModel(entity.getCountry()));
 
         try {
-            model.setDef_creators(entity.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
+            model.setDef_creators(entity.getDefCreators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
         }
         catch (Exception ignored){}
 
         try {
-            model.setDef_genres(entity.getDef_genres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
+            model.setDef_genres(entity.getDefGenres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
         }
         catch (Exception ignored){}
 
@@ -60,7 +60,7 @@ public class ExtendedVideoModel {
         catch (Exception ignored){}
 
         try {
-            model.setTime_codes(entity.getTime_codes().stream().map(TimeCodeModel::toModel).collect(Collectors.toList()));
+            model.setTime_codes(entity.getTimeCodes().stream().map(TimeCodeModel::toModel).collect(Collectors.toList()));
         }
         catch (Exception ignored){}
 

@@ -14,9 +14,6 @@ public class DefinedCreatorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //private Long video_id;
-    //private Long creator_id;
-    //private Long creator_role_id;
 
     @ManyToOne
     @JoinColumn(name = "video_id")
@@ -28,5 +25,5 @@ public class DefinedCreatorEntity {
 
     @ManyToOne
     @JoinColumn(name = "creator_role_id")
-    private CreatorRoleEntity creator_role;
+    private CreatorRoleEntity creatorRole;
 }

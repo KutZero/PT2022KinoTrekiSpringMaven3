@@ -15,7 +15,7 @@ public class DefinedCreatorModel {
         DefinedCreatorModel model = new DefinedCreatorModel();
         model.setId(entity.getId());
         model.setCreatorModel(CreatorModel.toModel(entity.getCreator()));
-        model.setCreatorRoleModel(CreatorRoleModel.toModel(entity.getCreator_role()));
+        model.setCreatorRoleModel(CreatorRoleModel.toModel(entity.getCreatorRole()));
         return model;
     }
 }

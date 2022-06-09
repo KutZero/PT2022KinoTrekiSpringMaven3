@@ -16,9 +16,9 @@ public class CommentModel {
     static public CommentModel toModel(CommentEntity entity){
         CommentModel model = new CommentModel();
         model.setId(entity.getId());
-        model.setAdd_date(entity.getAdd_date());
+        model.setAdd_date(entity.getAddDate());
         model.setContent(entity.getContent());
-        model.setLike_count(entity.getLike_count());
+        model.setLike_count(entity.getLikeCount());
         model.setSimpleUserModel(SimpleUserModel.toModel(entity.getUser()));
         return model;
     }

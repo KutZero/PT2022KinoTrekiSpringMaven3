@@ -14,11 +14,13 @@ public class CreatorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String last_name;
-    private String add_names;
+    @JoinColumn(name = "last_name")
+    private String lastName;
+    @JoinColumn(name = "add_names")
+    private String addNames;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "creator",
         cascade = CascadeType.ALL)
-    private List<DefinedCreatorEntity> def_creators;
+    private List<DefinedCreatorEntity> defCreators;
 }

@@ -27,20 +27,20 @@ public class SimpleVideoModel {
         SimpleVideoModel model = new SimpleVideoModel();
         model.setId(entity.getId());
         model.setName(entity.getName());
-        model.setRelease_year(entity.getRelease_year());
+        model.setRelease_year(entity.getReleaseYear());
         model.setDescription(entity.getDescription());
-        model.setPoster_path(entity.getPoster_path());
+        model.setPoster_path(entity.getPosterPath());
         model.setAgeRating(AgeRatingModel.toModel(entity.getRating()));
         model.setCountry(CountryModel.toModel(entity.getCountry()));
 
         // При добавлении нового видео в базу даже сделать запрос на пустоту этих полей у сущности видео сделать нельзя, так что как то так
         try {
-            model.setDef_creators(entity.getDef_creators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
+            model.setDef_creators(entity.getDefCreators().stream().map(DefinedCreatorModel::toModel).collect(Collectors.toList()));
         }
         catch (Exception ignored){}
 
         try {
-            model.setDef_genres(entity.getDef_genres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
+            model.setDef_genres(entity.getDefGenres().stream().map(DefinedVideoGenreModel::toModel).collect(Collectors.toList()));
         }
         catch (Exception ignored){}
 

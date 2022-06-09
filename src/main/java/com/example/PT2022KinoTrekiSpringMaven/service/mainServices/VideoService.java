@@ -12,6 +12,7 @@ import com.example.PT2022KinoTrekiSpringMaven.repository.mainRepos.VideoRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.AgeRatingRepo;
 import com.example.PT2022KinoTrekiSpringMaven.repository.smallRepos.CountryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -92,17 +93,17 @@ public class VideoService {
         }
 
         videoEntity.setComments(video.getComments());
-        videoEntity.setAdd_date(video.getAdd_date());
+        videoEntity.setAddDate(video.getAddDate());
         //videoEntity.setDef_creators(video.getDef_creators());
         videoEntity.setDescription(video.getDescription());
         videoEntity.setDuration(video.getDuration());
         videoEntity.setName(video.getName());
-        videoEntity.setTrailer_link(video.getTrailer_link());
-        videoEntity.setTime_codes(video.getTime_codes());
+        videoEntity.setTrailerLink(video.getTrailerLink());
+        videoEntity.setTimeCodes(video.getTimeCodes());
         videoEntity.setReviews(video.getReviews());
         //videoEntity.setDef_genres(video.getDef_genres());
-        videoEntity.setPoster_path(video.getPoster_path());
-        videoEntity.setRelease_year(video.getRelease_year());
+        videoEntity.setPosterPath(video.getPosterPath());
+        videoEntity.setReleaseYear(video.getReleaseYear());
         videoEntity.setTagline(video.getTagline());
 
         return SimpleVideoModel.toModel(videoRepo.save(videoEntity));
@@ -117,13 +118,22 @@ public class VideoService {
         return SimpleVideoModel.toModel(video);
     }
 
-    public List<SimpleVideoModel> getPageOfSimpleVideoByParams(Pageable page){
+    public Page<SimpleVideoModel> getPageOfSimpleVideo(Pageable page){
         // какая то проверка
         //List<VideoEntity> videos = videoRepo.findByNameIgnoreCase(name, page);
 
-        List<VideoEntity> videos = videoRepo.findAll(page);
+        Page<VideoEntity> videos = videoRepo.findAll(page);
 
-        return videos.stream().map(SimpleVideoModel::toModel).collect(Collectors.toList());
+        return videos.map(SimpleVideoModel::toModel);
+        //return videos.stream().map(SimpleVideoModel::toModel).collect(Collectors.toList());
+    }
+
+    public Page<SimpleVideoModel> getPageOfSimpleVideoByYear(Pageable page, int year){
+        // какая то проверка
+
+        Page<VideoEntity> videos = videoRepo.findByReleaseYear(page, year);
+
+        return videos.map(SimpleVideoModel::toModel);
     }
 
     public ExtendedVideoModel getExtendedVideoById(Long id) throws VideoNotFoundException {

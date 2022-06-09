@@ -16,7 +16,7 @@ public class CreatorRoleEntity {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY,
-            mappedBy = "creator_role",
+            mappedBy = "creatorRole",
             cascade = CascadeType.ALL)
-    private List<DefinedCreatorEntity> def_creators;
+    private List<DefinedCreatorEntity> defCreators;
 }

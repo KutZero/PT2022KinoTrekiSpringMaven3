@@ -16,7 +16,7 @@ public class SimpleMusicModel {
         SimpleMusicModel model = new SimpleMusicModel();
         model.setId(entity.getId());
         model.setName(entity.getName());
-        model.setGroup_name(entity.getGroup_name());
+        model.setGroup_name(entity.getGroupName());
         model.setDuration(entity.getDuration());
         return model;
     }

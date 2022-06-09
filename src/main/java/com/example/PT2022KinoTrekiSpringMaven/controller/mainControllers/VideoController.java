@@ -78,7 +78,23 @@ public class VideoController {
         try{
             //ошибки
             // такого видео не существует
-            return ResponseEntity.ok(videoService.getPageOfSimpleVideoByParams(PageRequest.of(pageNum,pageSize)));
+            return ResponseEntity.ok(videoService.getPageOfSimpleVideo(PageRequest.of(pageNum,pageSize)));
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body("Ошибка поиска страницы с видео");
+        }
+    }
+
+    @GetMapping("/simple/page/")
+    public ResponseEntity getPageOfSimpleVideo(@RequestParam int pageNum,
+                                               @RequestParam int pageSize,
+                                               @RequestParam int year){
+        try{
+            //ошибки
+            // такого видео не существует
+            return ResponseEntity.ok(
+                    videoService.getPageOfSimpleVideoByYear(PageRequest.of(pageNum,pageSize), year)
+            );
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Ошибка поиска страницы с видео");

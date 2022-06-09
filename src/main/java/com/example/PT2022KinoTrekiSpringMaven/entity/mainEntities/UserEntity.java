@@ -13,17 +13,19 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //private Long user_role_id;
     private String name;
-    private String last_name;
-    private String add_names;
+    @JoinColumn(name = "last_name")
+    private String lastName;
+    @JoinColumn(name = "add_names")
+    private String addNames;
     private String login;
     private String password;
-    private String photo_path;
+    @JoinColumn(name = "photo_path")
+    private String photoPath;
 
     @ManyToOne
     @JoinColumn (name="user_role_id")
-    private UserRoleEntity user_role;
+    private UserRoleEntity userRole;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "user",
@@ -33,12 +35,12 @@ public class UserEntity {
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "user",
         cascade = CascadeType.ALL)
-    private List<ReviewComplaintEntity> review_complaints;
+    private List<ReviewComplaintEntity> reviewComplaints;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "user",
         cascade = CascadeType.ALL)
-    private List<CommentComplaintEntity> comment_complaints;
+    private List<CommentComplaintEntity> commentComplaints;
 
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "user",
@@ -48,6 +50,6 @@ public class UserEntity {
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "user",
             cascade = CascadeType.ALL)
-    private List<TimeCodeEntity> time_codes;
+    private List<TimeCodeEntity> timeCodes;
 
 }

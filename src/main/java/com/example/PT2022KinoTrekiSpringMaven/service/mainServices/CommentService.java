@@ -62,7 +62,7 @@ public class CommentService {
             throw new CommentNotFoundException("Указанного комментария не существует");
         }
         CommentEntity comment = commentRepo.findById(id).get();
-        comment.setOutput_state(state);
+        comment.setOutputState(state);
     }
 
     public CommentModel getOneSimpleCommentById(Long id) throws CommentNotFoundException {

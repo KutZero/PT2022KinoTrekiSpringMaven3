@@ -27,7 +27,7 @@ public class UserService {
         }
 
         UserRoleEntity userRole = userRoleRepo.findById(user_role_id).get();
-        user.setUser_role(userRole);
+        user.setUserRole(userRole);
         return SimpleUserModel.toModel(userRepo.save(user));
     }
 

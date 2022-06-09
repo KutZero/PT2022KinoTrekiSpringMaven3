@@ -19,10 +19,10 @@ public class ReviewModel {
         ReviewModel model = new ReviewModel();
         model.setId(entity.getId());
         model.setContent(entity.getContent());
-        model.setLike_count(entity.getLike_count());
-        model.setAdd_date(entity.getAdd_date());
+        model.setLike_count(entity.getLikeCount());
+        model.setAdd_date(entity.getAddDate());
         model.setUser(SimpleUserModel.toModel(entity.getUser()));
-        model.setReview_type(ReviewTypeModel.toModel(entity.getReview_type()));
+        model.setReview_type(ReviewTypeModel.toModel(entity.getReviewType()));
 
         return model;
     }

@@ -14,8 +14,8 @@ public class CreatorModel {
         CreatorModel model = new CreatorModel();
         model.setId(entity.getId());
         model.setName(entity.getName());
-        model.setAdd_names(entity.getAdd_names());
-        model.setLast_name(entity.getLast_name());
+        model.setAdd_names(entity.getAddNames());
+        model.setLast_name(entity.getLastName());
         return model;
     }
 

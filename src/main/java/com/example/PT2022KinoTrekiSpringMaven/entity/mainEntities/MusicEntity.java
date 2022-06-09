@@ -15,16 +15,16 @@ public class MusicEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //private Long music_genre_id;
     private String name;
-    private String group_name;
+    @JoinColumn(name = "group_name")
+    private String groupName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time duration;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "music",
         cascade = CascadeType.ALL)
-    private List<TimeCodeEntity> time_codes;
+    private List<TimeCodeEntity> timeCodes;
 
     @ManyToOne
     @JoinColumn(name = "music_genre_id")

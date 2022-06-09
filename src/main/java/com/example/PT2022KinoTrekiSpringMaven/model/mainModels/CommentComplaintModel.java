@@ -16,7 +16,7 @@ public class CommentComplaintModel {
         CommentComplaintModel model = new CommentComplaintModel();
         model.setId(entity.getId());
         model.setContent(entity.getContent());
-        model.setAdd_date(entity.getAdd_date());
+        model.setAdd_date(entity.getAddDate());
         model.setUser(SimpleUserModel.toModel(entity.getUser()));
 
         return model;

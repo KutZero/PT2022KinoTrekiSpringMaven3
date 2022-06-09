@@ -16,7 +16,7 @@ public class ReviewTypeEntity {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY,
-        mappedBy = "review_type",
+        mappedBy = "reviewType",
         cascade = CascadeType.ALL)
     private List<ReviewEntity> reviews;
 }

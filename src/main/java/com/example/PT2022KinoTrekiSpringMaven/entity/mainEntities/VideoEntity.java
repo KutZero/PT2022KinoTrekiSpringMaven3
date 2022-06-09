@@ -19,17 +19,20 @@ public class VideoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //private Long age_rating_id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time duration;
     private String name;
-    private int release_year;
+    @JoinColumn(name = "release_year")
+    private int releaseYear;
     private String tagline;
     private String description;
-    private String poster_path;
-    private String trailer_link;
+    @JoinColumn(name = "poster_path")
+    private String posterPath;
+    @JoinColumn(name = "trailer_link")
+    private String trailerLink;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date add_date;
+    @JoinColumn(name = "add_date")
+    private Date addDate;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "video",
@@ -39,7 +42,7 @@ public class VideoEntity {
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "video",
         cascade = CascadeType.ALL)
-    private List<DefinedVideoGenreEntity> def_genres;
+    private List<DefinedVideoGenreEntity> defGenres;
 
     @ManyToOne
     @JoinColumn(name = "age_rating_id")
@@ -57,10 +60,10 @@ public class VideoEntity {
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "video",
             cascade = CascadeType.ALL)
-    private List<TimeCodeEntity> time_codes;
+    private List<TimeCodeEntity> timeCodes;
 
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "video",
             cascade = CascadeType.ALL)
-    private List<DefinedCreatorEntity> def_creators;
+    private List<DefinedCreatorEntity> defCreators;
 }

@@ -15,10 +15,13 @@ public class CommentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    private Long like_count;
+    @JoinColumn(name = "like_count")
+    private Long likeCount;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date add_date;
-    private Boolean output_state;
+    @JoinColumn(name = "add_date")
+    private Date addDate;
+    @JoinColumn(name = "output_state")
+    private Boolean outputState;
 
     @OneToMany(fetch = FetchType.LAZY,
         mappedBy = "comment",

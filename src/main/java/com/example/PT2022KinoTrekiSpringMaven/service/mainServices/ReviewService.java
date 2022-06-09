@@ -49,7 +49,7 @@ public class ReviewService {
         UserEntity user = userRepo.findById(user_id).get();
         VideoEntity video = videoRepo.findById(video_id).get();
 
-        review.setReview_type(reviewType);
+        review.setReviewType(reviewType);
         review.setUser(user);
         review.setVideo(video);
 
@@ -63,7 +63,7 @@ public class ReviewService {
             throw new ReviewNotFoundException("Указанного отзыва не существует");
         }
         ReviewEntity review = reviewRepo.findById(id).get();
-        review.setOutput_state(state);
+        review.setOutputState(state);
     }
 
     public void deleteReview(Long id) throws ReviewNotFoundException {

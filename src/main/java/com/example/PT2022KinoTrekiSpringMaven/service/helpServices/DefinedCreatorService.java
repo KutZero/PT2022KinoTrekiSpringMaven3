@@ -58,7 +58,7 @@ public class DefinedCreatorService {
 
         definedCreator.setVideo(video);
         definedCreator.setCreator(creator);
-        definedCreator.setCreator_role(creatorRole);
+        definedCreator.setCreatorRole(creatorRole);
 
         /*if(!definedCreatorRepo.existsByVideoAndCreator(video_id, creator_id)){
             throw new DefinedCreatorAlreadyExistException("Указанный создатель уже существует");

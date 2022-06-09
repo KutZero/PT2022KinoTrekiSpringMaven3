@@ -13,7 +13,7 @@ public class SimpleUserModel {
         SimpleUserModel model = new SimpleUserModel();
         model.setId(entity.getId());
         model.setLogin(entity.getLogin());
-        model.setPhoto_path(entity.getPhoto_path());
+        model.setPhoto_path(entity.getPhotoPath());
         return model;
     }
 
